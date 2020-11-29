@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +37,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWE-iL-s4h">
-                                                    <rect key="frame" x="65" y="17.5" width="66" height="21"/>
+                                                    <rect key="frame" x="65" y="17.5" width="317" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -49,6 +50,7 @@
                                                 <constraint firstItem="II9-CQ-z8G" firstAttribute="leading" secondItem="i8I-ZX-6nG" secondAttribute="leading" constant="16" id="LFe-vI-gtM"/>
                                                 <constraint firstItem="UWE-iL-s4h" firstAttribute="leading" secondItem="II9-CQ-z8G" secondAttribute="trailing" constant="8" id="TD4-CN-vRq"/>
                                                 <constraint firstItem="II9-CQ-z8G" firstAttribute="centerY" secondItem="i8I-ZX-6nG" secondAttribute="centerY" id="XQ9-5d-fvM"/>
+                                                <constraint firstAttribute="trailing" secondItem="UWE-iL-s4h" secondAttribute="trailing" id="d0Q-Jc-U06"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -74,6 +76,9 @@
                     <navigationItem key="navigationItem" title="Vaults" largeTitleDisplayMode="always" id="ug8-fq-wMR">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="4i9-5G-um5">
                             <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <segue destination="VB4-TB-Aon" kind="presentation" id="jyJ-kA-RZt"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -83,6 +88,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f20-lq-fdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1156.521739130435" y="114.50892857142857"/>
+        </scene>
+        <!--New Vault Controller-->
+        <scene sceneID="Ork-Cw-yuN">
+            <objects>
+                <viewController id="VB4-TB-Aon" customClass="NewVaultController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="82v-FX-xQ0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVp-Ki-T1l">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="New Vault" id="9c6-R9-mzc">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pE8-Hj-rg3">
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="onCancelClicked:" destination="VB4-TB-Aon" id="VBs-DW-Hw4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" style="done" id="bK9-DE-LII">
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Cdj-6r-Hxv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KVp-Ki-T1l" firstAttribute="top" secondItem="Cdj-6r-Hxv" secondAttribute="top" id="Gfa-cQ-kiG"/>
+                            <constraint firstItem="KVp-Ki-T1l" firstAttribute="trailing" secondItem="Cdj-6r-Hxv" secondAttribute="trailing" id="GnH-cg-d20"/>
+                            <constraint firstItem="KVp-Ki-T1l" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" id="sFj-Kh-pZr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Frh-tP-ZbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2058" y="115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="47F-X9-PYY">
