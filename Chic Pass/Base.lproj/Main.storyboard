@@ -43,7 +43,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                            <color key="backgroundColor" systemColor="systemFillColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="15x-9P-8pu"/>
                                                 <constraint firstItem="UWE-iL-s4h" firstAttribute="centerY" secondItem="i8I-ZX-6nG" secondAttribute="centerY" id="BGf-LP-uLj"/>
@@ -114,19 +114,76 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZi-Y9-fXd">
+                                <rect key="frame" x="20" y="72" width="374" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0e-ut-pjA">
+                                <rect key="frame" x="20" y="172" width="374" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Personal, Family, Company, etc…" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-lC-LTo">
+                                <rect key="frame" x="20" y="100" width="374" height="56"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="26q-Tg-ny6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Get a strong password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p4z-ub-rww">
+                                <rect key="frame" x="20" y="200" width="374" height="56"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="sT2-Rv-7oE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cdj-6r-Hxv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="m0e-ut-pjA" firstAttribute="top" secondItem="6ng-lC-LTo" secondAttribute="bottom" constant="16" id="59g-AB-eHS"/>
+                            <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="p4z-ub-rww" secondAttribute="trailing" constant="20" id="6ZQ-mp-CFe"/>
+                            <constraint firstItem="p4z-ub-rww" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="7t5-aG-XfH"/>
+                            <constraint firstItem="HZi-Y9-fXd" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="Dfc-rJ-Cfu"/>
+                            <constraint firstItem="HZi-Y9-fXd" firstAttribute="top" secondItem="KVp-Ki-T1l" secondAttribute="bottom" constant="16" id="FPO-1w-VyW"/>
                             <constraint firstItem="KVp-Ki-T1l" firstAttribute="top" secondItem="Cdj-6r-Hxv" secondAttribute="top" id="Gfa-cQ-kiG"/>
                             <constraint firstItem="KVp-Ki-T1l" firstAttribute="trailing" secondItem="Cdj-6r-Hxv" secondAttribute="trailing" id="GnH-cg-d20"/>
+                            <constraint firstItem="6ng-lC-LTo" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="L0j-0B-BTW"/>
+                            <constraint firstItem="p4z-ub-rww" firstAttribute="top" secondItem="m0e-ut-pjA" secondAttribute="bottom" constant="8" symbolic="YES" id="Nn4-H8-kyl"/>
+                            <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="6ng-lC-LTo" secondAttribute="trailing" constant="20" id="OWi-bl-7cc"/>
+                            <constraint firstItem="m0e-ut-pjA" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="PwB-As-mRv"/>
+                            <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="m0e-ut-pjA" secondAttribute="trailing" constant="20" id="bhL-ro-1Ny"/>
+                            <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="HZi-Y9-fXd" secondAttribute="trailing" constant="20" id="gBg-oL-JL8"/>
+                            <constraint firstItem="6ng-lC-LTo" firstAttribute="top" secondItem="HZi-Y9-fXd" secondAttribute="bottom" constant="8" symbolic="YES" id="iso-gS-VVd"/>
                             <constraint firstItem="KVp-Ki-T1l" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" id="sFj-Kh-pZr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="bK9-DE-LII" id="JCs-QE-PMN"/>
+                        <outlet property="nameTextField" destination="6ng-lC-LTo" id="JWb-to-Fzk"/>
+                        <outlet property="passwordTextField" destination="p4z-ub-rww" id="Wzl-cx-HKe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Frh-tP-ZbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058" y="115"/>
+            <point key="canvasLocation" x="2057.971014492754" y="114.50892857142857"/>
         </scene>
         <!--Categories-->
         <scene sceneID="Pqw-BX-SbV">
@@ -151,14 +208,33 @@
                     <view key="view" contentMode="scaleToFill" id="Z3R-jv-Ew4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by category, name, email, etc.." translatesAutoresizingMaskIntoConstraints="NO" id="Qpa-Io-Em3">
+                                <rect key="frame" x="0.0" y="140" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Pe-e4p">
+                                <rect key="frame" x="0.0" y="196" width="414" height="617"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VHj-ob-7qi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IDN-Pe-e4p" firstAttribute="trailing" secondItem="VHj-ob-7qi" secondAttribute="trailing" id="Afj-Il-0qU"/>
+                            <constraint firstItem="IDN-Pe-e4p" firstAttribute="leading" secondItem="VHj-ob-7qi" secondAttribute="leading" id="YVP-wZ-2qf"/>
+                            <constraint firstItem="Qpa-Io-Em3" firstAttribute="trailing" secondItem="VHj-ob-7qi" secondAttribute="trailing" id="bKL-ay-CFP"/>
+                            <constraint firstItem="Qpa-Io-Em3" firstAttribute="leading" secondItem="VHj-ob-7qi" secondAttribute="leading" id="boj-ao-Eph"/>
+                            <constraint firstItem="IDN-Pe-e4p" firstAttribute="bottom" secondItem="VHj-ob-7qi" secondAttribute="bottom" id="dyB-nG-D8l"/>
+                            <constraint firstItem="Qpa-Io-Em3" firstAttribute="top" secondItem="VHj-ob-7qi" secondAttribute="top" id="iYx-as-3O5"/>
+                            <constraint firstItem="IDN-Pe-e4p" firstAttribute="top" secondItem="Qpa-Io-Em3" secondAttribute="bottom" id="ihh-zV-dck"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Passwords" image="list.bullet" catalog="system" id="0tW-Xg-glF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuE-zJ-qJv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997" y="115"/>
+            <point key="canvasLocation" x="2995.6521739130435" y="114.50892857142857"/>
         </scene>
         <!--Home-->
         <scene sceneID="nVp-hy-wXr">
@@ -247,6 +323,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
