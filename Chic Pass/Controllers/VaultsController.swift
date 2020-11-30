@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VaultsController: UIViewController, UITableViewDataSource {
+class VaultsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     let vaults = ["Personal", "Work"]
@@ -21,9 +21,14 @@ class VaultsController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "vaultRow", for: indexPath) as! VaultTableViewCell
         cell.name.text = vaults[indexPath.row]
         
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "vaultRow", for: indexPath) as! VaultTableViewCell
+        performSegue(withIdentifier: "segue_vaults_to_home", sender: cell)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vaults.count
