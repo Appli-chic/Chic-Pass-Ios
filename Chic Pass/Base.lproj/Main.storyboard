@@ -186,7 +186,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nX-tK-sXV">
                                         <rect key="frame" x="292.5" y="0.0" width="81.5" height="10"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="5"/>
@@ -249,7 +249,7 @@
                         <viewLayoutGuide key="safeArea" id="aeV-Ps-E68"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Categories" image="folder.fill" catalog="system" id="dsk-rC-WLa"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Categories" image="folder.fill" catalog="system" id="dsk-rC-WLa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92I-Vc-Al7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,10 +293,13 @@
         <!--Home-->
         <scene sceneID="nVp-hy-wXr">
             <objects>
-                <tabBarController title="Home" id="rKa-vF-0Rk" sceneMemberID="viewController">
+                <tabBarController title="Home" id="rKa-vF-0Rk" customClass="MainTabBarController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="c9z-HI-nlW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Ew-h1-42p">
                             <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="onAddPasswordClicked:" destination="VrG-jV-phl" id="qdn-KP-uXU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="whO-nR-BqX">
@@ -306,6 +309,7 @@
                         <color key="selectedImageTintColor" systemColor="systemRedColor"/>
                     </tabBar>
                     <connections>
+                        <outlet property="addItem" destination="0Ew-h1-42p" id="aZk-hy-TXW"/>
                         <segue destination="dqd-af-3ME" kind="relationship" relationship="viewControllers" id="69n-jU-kX9"/>
                         <segue destination="HsH-O0-NRr" kind="relationship" relationship="viewControllers" id="8Ol-P4-xd7"/>
                         <segue destination="UI9-Xu-qZY" kind="relationship" relationship="viewControllers" id="3fe-jX-Uiz"/>
@@ -313,6 +317,7 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3u-YN-cGo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="VrG-jV-phl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2058" y="855"/>
         </scene>
@@ -343,7 +348,7 @@
                         <viewLayoutGuide key="safeArea" id="Vky-hv-s5d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Metrics" image="chart.bar.fill" catalog="system" id="Lid-47-zjU"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Metrics" image="chart.bar.fill" catalog="system" id="Lid-47-zjU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caw-ei-4PA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -359,7 +364,7 @@
                         <viewLayoutGuide key="safeArea" id="dce-hv-Kt3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="bgR-me-nZ2"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Settings" image="gearshape.fill" catalog="system" id="bgR-me-nZ2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tku-rC-uWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

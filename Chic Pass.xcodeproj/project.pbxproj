@@ -12,6 +12,7 @@
 		5F1222C725756B700007AE44 /* MetricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222C625756B700007AE44 /* MetricsController.swift */; };
 		5F1222CC25756CC80007AE44 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222CB25756CC80007AE44 /* SettingsController.swift */; };
 		5F1222D2257578010007AE44 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222D1257578010007AE44 /* UITextField.swift */; };
+		5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */; };
 		5FCBAE64257409F700748D85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE63257409F700748D85 /* AppDelegate.swift */; };
 		5FCBAE66257409F700748D85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE65257409F700748D85 /* SceneDelegate.swift */; };
 		5FCBAE68257409F700748D85 /* VaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE67257409F700748D85 /* VaultsController.swift */; };
@@ -48,6 +49,7 @@
 		5F1222C625756B700007AE44 /* MetricsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsController.swift; sourceTree = "<group>"; };
 		5F1222CB25756CC80007AE44 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		5F1222D1257578010007AE44 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5FCBAE60257409F700748D85 /* Chic Pass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chic Pass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCBAE63257409F700748D85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FCBAE65257409F700748D85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				5F1222C125756B4B0007AE44 /* CategoriesController.swift */,
 				5F1222C625756B700007AE44 /* MetricsController.swift */,
 				5F1222CB25756CC80007AE44 /* SettingsController.swift */,
+				5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				5F1222C725756B700007AE44 /* MetricsController.swift in Sources */,
 				5FCBAE68257409F700748D85 /* VaultsController.swift in Sources */,
+				5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */,
 				5FCBAE64257409F700748D85 /* AppDelegate.swift in Sources */,
 				5F1222D2257578010007AE44 /* UITextField.swift in Sources */,
 				5F1222BD25756B170007AE44 /* PasswordsController.swift in Sources */,

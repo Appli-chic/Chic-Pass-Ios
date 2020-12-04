@@ -8,7 +8,7 @@
 import UIKit
 
 class PasswordsController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,5 +17,9 @@ class PasswordsController: UIViewController {
         if let tabController = self.parent as? UITabBarController {
             tabController.navigationItem.title = "Passwords"
         }
+    }
+    
+    @IBAction func onAddPasswordClicked(_ sender: Any) {
+        
     }
 }
