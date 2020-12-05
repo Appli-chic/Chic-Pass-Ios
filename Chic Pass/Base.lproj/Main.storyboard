@@ -110,6 +110,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Add" style="done" id="bK9-DE-LII">
                                             <color key="tintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="onAddClicked:" destination="VB4-TB-Aon" id="0yP-1B-AQd"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -133,21 +136,7 @@
                                     <constraint firstAttribute="height" constant="56" id="26q-Tg-ny6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="name"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Get a strong password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p4z-ub-rww">
-                                <rect key="frame" x="20" y="199" width="374" height="56"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="sT2-Rv-7oE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="12"/>
@@ -201,6 +190,40 @@
                                     <constraint firstItem="6nX-tK-sXV" firstAttribute="width" secondItem="FF0-yv-zkS" secondAttribute="width" id="U82-zx-lO1"/>
                                 </constraints>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Get a strong password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p4z-ub-rww">
+                                <rect key="frame" x="20" y="199" width="374" height="56"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="sT2-Rv-7oE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78a-kB-XRT">
+                                <rect key="frame" x="20" y="289" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type the same password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8b-FC-LE2">
+                                <rect key="frame" x="20" y="316.5" width="374" height="56"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="3S8-r1-zZV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cdj-6r-Hxv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -208,9 +231,13 @@
                             <constraint firstItem="m0e-ut-pjA" firstAttribute="top" secondItem="6ng-lC-LTo" secondAttribute="bottom" constant="16" id="59g-AB-eHS"/>
                             <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="p4z-ub-rww" secondAttribute="trailing" constant="20" id="6ZQ-mp-CFe"/>
                             <constraint firstItem="p4z-ub-rww" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="7t5-aG-XfH"/>
+                            <constraint firstItem="c8b-FC-LE2" firstAttribute="top" secondItem="78a-kB-XRT" secondAttribute="bottom" constant="8" symbolic="YES" id="9Pm-yR-Rqf"/>
+                            <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="c8b-FC-LE2" secondAttribute="trailing" constant="20" id="9bv-V3-Adf"/>
+                            <constraint firstItem="c8b-FC-LE2" firstAttribute="top" secondItem="78a-kB-XRT" secondAttribute="bottom" constant="8" symbolic="YES" id="ANC-7R-tc2"/>
                             <constraint firstItem="HZi-Y9-fXd" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="Dfc-rJ-Cfu"/>
                             <constraint firstItem="Gsq-rY-NkR" firstAttribute="top" secondItem="p4z-ub-rww" secondAttribute="bottom" constant="8" symbolic="YES" id="ENT-qR-MPL"/>
                             <constraint firstItem="HZi-Y9-fXd" firstAttribute="top" secondItem="KVp-Ki-T1l" secondAttribute="bottom" constant="16" id="FPO-1w-VyW"/>
+                            <constraint firstItem="78a-kB-XRT" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="GPJ-rC-BpW"/>
                             <constraint firstItem="KVp-Ki-T1l" firstAttribute="top" secondItem="Cdj-6r-Hxv" secondAttribute="top" id="Gfa-cQ-kiG"/>
                             <constraint firstItem="KVp-Ki-T1l" firstAttribute="trailing" secondItem="Cdj-6r-Hxv" secondAttribute="trailing" id="GnH-cg-d20"/>
                             <constraint firstItem="6ng-lC-LTo" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="L0j-0B-BTW"/>
@@ -219,10 +246,13 @@
                             <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="6ng-lC-LTo" secondAttribute="trailing" constant="20" id="OWi-bl-7cc"/>
                             <constraint firstItem="m0e-ut-pjA" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="PwB-As-mRv"/>
                             <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="m0e-ut-pjA" secondAttribute="trailing" constant="20" id="bhL-ro-1Ny"/>
+                            <constraint firstItem="78a-kB-XRT" firstAttribute="top" secondItem="Gsq-rY-NkR" secondAttribute="bottom" constant="16" id="bqg-Ps-MBm"/>
                             <constraint firstItem="Gsq-rY-NkR" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="buO-dm-fwN"/>
                             <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="HZi-Y9-fXd" secondAttribute="trailing" constant="20" id="gBg-oL-JL8"/>
                             <constraint firstItem="6ng-lC-LTo" firstAttribute="top" secondItem="HZi-Y9-fXd" secondAttribute="bottom" constant="8" symbolic="YES" id="iso-gS-VVd"/>
+                            <constraint firstItem="c8b-FC-LE2" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" constant="20" id="oIE-gy-GKs"/>
                             <constraint firstItem="KVp-Ki-T1l" firstAttribute="leading" secondItem="Cdj-6r-Hxv" secondAttribute="leading" id="sFj-Kh-pZr"/>
+                            <constraint firstItem="Cdj-6r-Hxv" firstAttribute="trailing" secondItem="78a-kB-XRT" secondAttribute="trailing" constant="20" id="sZL-KF-OxJ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -231,6 +261,7 @@
                         <outlet property="mediumView" destination="yQr-ID-Q1X" id="geO-z8-7JC"/>
                         <outlet property="nameTextField" destination="6ng-lC-LTo" id="JWb-to-Fzk"/>
                         <outlet property="passwordTextField" destination="p4z-ub-rww" id="Wzl-cx-HKe"/>
+                        <outlet property="repeatPasswordTextField" destination="c8b-FC-LE2" id="uNO-94-14y"/>
                         <outlet property="veryGoodView" destination="6nX-tK-sXV" id="06K-d2-6Wh"/>
                         <outlet property="weakView" destination="FF0-yv-zkS" id="VSi-3B-bnE"/>
                     </connections>

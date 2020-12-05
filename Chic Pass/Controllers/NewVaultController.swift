@@ -6,17 +6,20 @@
 //
 
 import UIKit
+import os
 
 class NewVaultController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
     
     @IBOutlet weak var weakView: UIView!
     @IBOutlet weak var mediumView: UIView!
     @IBOutlet weak var goodView: UIView!
     @IBOutlet weak var veryGoodView: UIView!
     
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var isPasswordHidden = true
     private var passwordIcon = UIImageView()
     
@@ -28,10 +31,16 @@ class NewVaultController: UIViewController {
         nameTextField.setRightPaddingPoints(16)
         passwordTextField.setLeftPaddingPoints(16)
         passwordTextField.setRightPaddingPoints(16)
+        repeatPasswordTextField.setLeftPaddingPoints(16)
+        repeatPasswordTextField.setRightPaddingPoints(16)
         
         nameTextField.addTarget(self, action: #selector(onTextFieldsChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(onTextFieldsChange(_:)), for: .editingChanged)
+        repeatPasswordTextField.addTarget(self, action: #selector(onTextFieldsChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(onPasswordStrengthChange(_:)), for: .editingChanged)
+        
+        passwordTextField.textContentType = .oneTimeCode
+        repeatPasswordTextField.textContentType = .oneTimeCode
         
         // Add the password an eye icon
         let passwordIconView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
@@ -47,9 +56,56 @@ class NewVaultController: UIViewController {
         passwordTextField.rightView = passwordIconView
         passwordTextField.rightViewMode = .always
     }
+    
+    @IBAction func onAddClicked(_ sender: Any) {
+        var errorMessage = ""
+        
+        if passwordTextField.text!.count < 6 {
+            errorMessage = "The password must be at least 6 characters"
+        }
+        
+        if passwordTextField.text != repeatPasswordTextField.text {
+            errorMessage = "The passwords must be identical"
+        }
+        
+        if errorMessage.isEmpty {
+            addVault()
+        } else {
+            let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func addVault() {
+        let context = appDelegate.persistentContainer.viewContext
+        let vaultName = nameTextField.text
+        
+        DispatchQueue.global().async {
+            let vault = Vault(context: context)
+            vault.id = UUID.init()
+            vault.name = vaultName
+            vault.signature = "signature"
+            vault.createdAt = Date()
+            vault.updatedAt = Date()
+            
+            do {
+               try context.save()
+            } catch {
+                let nsError = error as NSError
+                let defaultLog = Logger()
+                defaultLog.error("Error creating a vault: \(nsError)")
+            }
+            
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .newVaultDismissed, object: nil)
+                self.dismiss(animated: true)
+            }
+        }
+    }
 
     @IBAction func onCancelClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
     @objc func onPasswordIconTapped(_ sender: UITapGestureRecognizer? = nil) {
@@ -65,7 +121,7 @@ class NewVaultController: UIViewController {
     }
     
     @objc func onTextFieldsChange(_ textField: UITextField) {
-        if nameTextField.hasText && passwordTextField.hasText {
+        if nameTextField.hasText && passwordTextField.hasText && repeatPasswordTextField.hasText {
             addButton.isEnabled = true
         } else {
             addButton.isEnabled = false
