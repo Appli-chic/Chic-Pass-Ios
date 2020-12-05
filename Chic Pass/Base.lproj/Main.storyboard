@@ -12,7 +12,7 @@
         <scene sceneID="oxd-68-PCI">
             <objects>
                 <tableViewController id="wuo-fq-XhN" customClass="VaultsController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oab-mc-moc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="Oab-mc-moc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -26,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8I-ZX-6nG">
-                                            <rect key="frame" x="16" y="0.0" width="382" height="56"/>
+                                            <rect key="frame" x="16" y="8" width="382" height="56"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="II9-CQ-z8G">
                                                     <rect key="frame" x="16" y="8" width="41" height="40"/>
@@ -55,9 +55,10 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="i8I-ZX-6nG" firstAttribute="top" secondItem="I4P-vX-S9P" secondAttribute="top" id="I37-2K-eHJ"/>
+                                        <constraint firstItem="i8I-ZX-6nG" firstAttribute="top" secondItem="I4P-vX-S9P" secondAttribute="top" constant="8" id="I37-2K-eHJ"/>
                                         <constraint firstAttribute="trailing" secondItem="i8I-ZX-6nG" secondAttribute="trailing" constant="16" id="NP4-MV-lJ6"/>
                                         <constraint firstItem="i8I-ZX-6nG" firstAttribute="leading" secondItem="I4P-vX-S9P" secondAttribute="leading" constant="16" id="ZSY-93-8gG"/>
+                                        <constraint firstAttribute="bottom" secondItem="i8I-ZX-6nG" secondAttribute="bottom" constant="8" id="eZn-Tg-SmY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

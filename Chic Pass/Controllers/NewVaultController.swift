@@ -80,10 +80,11 @@ class NewVaultController: UIViewController {
     func addVault() {
         let context = appDelegate.persistentContainer.viewContext
         let vaultName = nameTextField.text
+        let password = passwordTextField.text
         
         DispatchQueue.global().async {
             do {
-                let signature = try Security.encryptData(key: password, data: Security.signature)
+                let signature = try Security.encryptData(key: password!, data: Security.signature)
 
                 let vault = Vault(context: context)
                 vault.id = UUID.init()
