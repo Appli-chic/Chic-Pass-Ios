@@ -18,6 +18,7 @@ extension Notification.Name {
 class VaultsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var vaults: [Vault] = []
 
     override func viewDidLoad() {
@@ -75,13 +76,35 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            vaults.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            let deletedAlert = UIAlertController(title: "Warning", message: "All the passwords contained in this vault will be deleted too", preferredStyle: UIAlertController.Style.alert)
+
+            deletedAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
+                self.deleteVault(indexPath: indexPath)
+            }))
+
+            deletedAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+            present(deletedAlert, animated: true, completion: nil)
         }
     }
     
     @objc private func onNewVaultDismissed(_ notification: Notification) {
         loadVaults()
+    }
+    
+    private func deleteVault(indexPath: IndexPath) {
+        let context = appDelegate.persistentContainer.viewContext
+        
+        do {
+            context.delete(vaults[indexPath.row])
+            try context.save()
+            vaults.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        } catch {
+            let nsError = error as NSError
+            let defaultLog = Logger()
+            defaultLog.error("Error deleting a vault: \(nsError)")
+        }
     }
 }
 
