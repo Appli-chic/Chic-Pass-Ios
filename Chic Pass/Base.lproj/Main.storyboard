@@ -266,7 +266,11 @@
                         <viewLayoutGuide key="safeArea" id="aeV-Ps-E68"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="Baf-5J-PEr"/>
+                    <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="Baf-5J-PEr">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="KSa-vb-X8E">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92I-Vc-Al7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -294,7 +298,14 @@
                             <constraint firstItem="IDN-Pe-e4p" firstAttribute="bottom" secondItem="VHj-ob-7qi" secondAttribute="bottom" id="dyB-nG-D8l"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="always" id="vN9-jc-fsc"/>
+                    <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="always" id="vN9-jc-fsc">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VOX-Kl-mhp">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="IDN-Pe-e4p" id="mJw-Uq-vSN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuE-zJ-qJv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
