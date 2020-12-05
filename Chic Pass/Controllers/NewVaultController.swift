@@ -9,7 +9,7 @@ import UIKit
 import os
 import JGProgressHUD
 
-class NewVaultController: UIViewController {
+class NewVaultController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -35,10 +35,13 @@ class NewVaultController: UIViewController {
         addButton.isEnabled = false
         nameTextField.setLeftPaddingPoints(16)
         nameTextField.setRightPaddingPoints(16)
+        nameTextField.delegate = self
         passwordTextField.setLeftPaddingPoints(16)
         passwordTextField.setRightPaddingPoints(16)
+        passwordTextField.delegate = self
         repeatPasswordTextField.setLeftPaddingPoints(16)
         repeatPasswordTextField.setRightPaddingPoints(16)
+        repeatPasswordTextField.delegate = self
         
         nameTextField.addTarget(self, action: #selector(onTextFieldsChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(onTextFieldsChange(_:)), for: .editingChanged)
@@ -89,7 +92,6 @@ class NewVaultController: UIViewController {
         // Hide Keyboard
         UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
 
-        
         // Showing a loading alert
         let loadingAlert = JGProgressHUD()
         loadingAlert.textLabel.text = "Loading"
@@ -180,5 +182,17 @@ class NewVaultController: UIViewController {
             goodView.backgroundColor = UIColor.green
             veryGoodView.backgroundColor = UIColor.green
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+
+        return true
     }
 }
