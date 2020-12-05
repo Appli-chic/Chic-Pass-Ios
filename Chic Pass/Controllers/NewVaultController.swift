@@ -7,6 +7,7 @@
 
 import UIKit
 import os
+import JGProgressHUD
 
 class NewVaultController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -25,7 +26,12 @@ class NewVaultController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Keyboard dismissable with a click
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
+        // Init the components
         addButton.isEnabled = false
         nameTextField.setLeftPaddingPoints(16)
         nameTextField.setRightPaddingPoints(16)
@@ -58,6 +64,7 @@ class NewVaultController: UIViewController {
     }
     
     @IBAction func onAddClicked(_ sender: Any) {
+        addButton.isEnabled = false
         var errorMessage = ""
         
         if passwordTextField.text!.count < 6 {
@@ -71,6 +78,7 @@ class NewVaultController: UIViewController {
         if errorMessage.isEmpty {
             addVault()
         } else {
+            addButton.isEnabled = true
             let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
             self.present(alert, animated: true, completion: nil)
@@ -78,6 +86,17 @@ class NewVaultController: UIViewController {
     }
     
     func addVault() {
+        // Hide Keyboard
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
+
+        
+        // Showing a loading alert
+        let loadingAlert = JGProgressHUD()
+        loadingAlert.textLabel.text = "Loading"
+        loadingAlert.hudView.backgroundColor = UIColor.secondarySystemBackground
+        loadingAlert.show(in: self.view)
+        
+        // Prepare to add the vault to the local database
         let context = appDelegate.persistentContainer.viewContext
         let vaultName = nameTextField.text
         let password = passwordTextField.text
@@ -94,15 +113,18 @@ class NewVaultController: UIViewController {
                 vault.updatedAt = Date()
 
                 try context.save()
+                
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: .newVaultDismissed, object: nil)
+                    loadingAlert.dismiss()
+                    self.dismiss(animated: true)
+                }
             } catch {
                 let nsError = error as NSError
                 let defaultLog = Logger()
                 defaultLog.error("Error creating a vault: \(nsError)")
-            }
-            
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: .newVaultDismissed, object: nil)
-                self.dismiss(animated: true)
+                
+                self.addButton.isEnabled = true
             }
         }
     }
@@ -137,17 +159,17 @@ class NewVaultController: UIViewController {
             mediumView.backgroundColor = UIColor.secondarySystemBackground
             goodView.backgroundColor = UIColor.secondarySystemBackground
             veryGoodView.backgroundColor = UIColor.secondarySystemBackground
-        } else if textField.text!.count <= 6 {
+        } else if textField.text!.count < 6 {
             weakView.backgroundColor = UIColor.red
             mediumView.backgroundColor = UIColor.secondarySystemBackground
             goodView.backgroundColor = UIColor.secondarySystemBackground
             veryGoodView.backgroundColor = UIColor.secondarySystemBackground
-        } else if textField.text!.count <= 10 {
+        } else if textField.text!.count < 10 {
             weakView.backgroundColor = UIColor.orange
             mediumView.backgroundColor = UIColor.orange
             goodView.backgroundColor = UIColor.secondarySystemBackground
             veryGoodView.backgroundColor = UIColor.secondarySystemBackground
-        }  else if textField.text!.count <= 13 {
+        }  else if textField.text!.count < 13 {
             weakView.backgroundColor = UIColor.yellow
             mediumView.backgroundColor = UIColor.yellow
             goodView.backgroundColor = UIColor.yellow

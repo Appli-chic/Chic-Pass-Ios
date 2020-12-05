@@ -7,6 +7,7 @@ target 'Chic Pass' do
 
   # Pods for Chic Pass
   pod 'CryptoSwift', '~> 1.3.8'
+  pod 'JGProgressHUD'
 
   target 'Chic PassTests' do
     inherit! :search_paths
