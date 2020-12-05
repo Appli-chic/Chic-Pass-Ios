@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48FBCD0136F8A4556D236ABA /* Pods_Chic_Pass_Chic_PassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE83EF133B5BCD787A09062 /* Pods_Chic_Pass_Chic_PassUITests.framework */; };
 		5F1222BD25756B170007AE44 /* PasswordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222BC25756B170007AE44 /* PasswordsController.swift */; };
 		5F1222C225756B4B0007AE44 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222C125756B4B0007AE44 /* CategoriesController.swift */; };
 		5F1222C725756B700007AE44 /* MetricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222C625756B700007AE44 /* MetricsController.swift */; };
 		5F1222CC25756CC80007AE44 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222CB25756CC80007AE44 /* SettingsController.swift */; };
 		5F1222D2257578010007AE44 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222D1257578010007AE44 /* UITextField.swift */; };
 		5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */; };
+		5F94B3DA257BE40D0049940B /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F94B3D9257BE40D0049940B /* Security.swift */; };
 		5FCBAE64257409F700748D85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE63257409F700748D85 /* AppDelegate.swift */; };
 		5FCBAE66257409F700748D85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE65257409F700748D85 /* SceneDelegate.swift */; };
 		5FCBAE68257409F700748D85 /* VaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE67257409F700748D85 /* VaultsController.swift */; };
@@ -24,6 +26,8 @@
 		5FCBAE89257409FC00748D85 /* Chic_PassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE88257409FC00748D85 /* Chic_PassUITests.swift */; };
 		5FCBAEA6257413F400748D85 /* VaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAEA5257413F400748D85 /* VaultTableViewCell.swift */; };
 		5FEF5E1525744A41003E7146 /* NewVaultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEF5E1425744A41003E7146 /* NewVaultController.swift */; };
+		E5F2B10D4B3FB131C3CC3D8A /* Pods_Chic_Pass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81C956A6FE3CF7EE358278C /* Pods_Chic_Pass.framework */; };
+		EF3232DE613696103ED2D4E2 /* Pods_Chic_PassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9360992C2F7F7E1B892108C3 /* Pods_Chic_PassTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0F64E8BDA931CBFCF112FE /* Pods-Chic PassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic PassTests.debug.xcconfig"; path = "Target Support Files/Pods-Chic PassTests/Pods-Chic PassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F1222BC25756B170007AE44 /* PasswordsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordsController.swift; sourceTree = "<group>"; };
 		5F1222C125756B4B0007AE44 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		5F1222C625756B700007AE44 /* MetricsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsController.swift; sourceTree = "<group>"; };
 		5F1222CB25756CC80007AE44 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		5F1222D1257578010007AE44 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5F94B3D9257BE40D0049940B /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		5FCBAE60257409F700748D85 /* Chic Pass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chic Pass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCBAE63257409F700748D85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FCBAE65257409F700748D85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,14 @@
 		5FCBAE8A257409FC00748D85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FCBAEA5257413F400748D85 /* VaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTableViewCell.swift; sourceTree = "<group>"; };
 		5FEF5E1425744A41003E7146 /* NewVaultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVaultController.swift; sourceTree = "<group>"; };
+		621D2634BD9179408B813956 /* Pods-Chic Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass.debug.xcconfig"; path = "Target Support Files/Pods-Chic Pass/Pods-Chic Pass.debug.xcconfig"; sourceTree = "<group>"; };
+		83AB08558693B56B321B1DF4 /* Pods-Chic Pass-Chic PassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass-Chic PassUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chic Pass-Chic PassUITests/Pods-Chic Pass-Chic PassUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		90C353C8275FDDE3F730F0B8 /* Pods-Chic Pass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass.release.xcconfig"; path = "Target Support Files/Pods-Chic Pass/Pods-Chic Pass.release.xcconfig"; sourceTree = "<group>"; };
+		9360992C2F7F7E1B892108C3 /* Pods_Chic_PassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chic_PassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D6A79E2E2CF8376725C0DFB /* Pods-Chic PassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic PassTests.release.xcconfig"; path = "Target Support Files/Pods-Chic PassTests/Pods-Chic PassTests.release.xcconfig"; sourceTree = "<group>"; };
+		A39D87989A04D54E7F4F11CD /* Pods-Chic Pass-Chic PassUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass-Chic PassUITests.release.xcconfig"; path = "Target Support Files/Pods-Chic Pass-Chic PassUITests/Pods-Chic Pass-Chic PassUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ADE83EF133B5BCD787A09062 /* Pods_Chic_Pass_Chic_PassUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chic_Pass_Chic_PassUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81C956A6FE3CF7EE358278C /* Pods_Chic_Pass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chic_Pass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F2B10D4B3FB131C3CC3D8A /* Pods_Chic_Pass.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3232DE613696103ED2D4E2 /* Pods_Chic_PassTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,18 +104,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48FBCD0136F8A4556D236ABA /* Pods_Chic_Pass_Chic_PassUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AAE9A8385AC034C46B11A85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				621D2634BD9179408B813956 /* Pods-Chic Pass.debug.xcconfig */,
+				90C353C8275FDDE3F730F0B8 /* Pods-Chic Pass.release.xcconfig */,
+				83AB08558693B56B321B1DF4 /* Pods-Chic Pass-Chic PassUITests.debug.xcconfig */,
+				A39D87989A04D54E7F4F11CD /* Pods-Chic Pass-Chic PassUITests.release.xcconfig */,
+				0F0F64E8BDA931CBFCF112FE /* Pods-Chic PassTests.debug.xcconfig */,
+				9D6A79E2E2CF8376725C0DFB /* Pods-Chic PassTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5F1222D0257577E30007AE44 /* UtilsUI */ = {
 			isa = PBXGroup;
 			children = (
 				5F1222D1257578010007AE44 /* UITextField.swift */,
 			);
 			path = UtilsUI;
+			sourceTree = "<group>";
+		};
+		5F94B3D8257BE3FA0049940B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5F94B3D9257BE40D0049940B /* Security.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		5FCBAE57257409F700748D85 = {
@@ -109,6 +148,8 @@
 				5FCBAE7C257409FC00748D85 /* Chic PassTests */,
 				5FCBAE87257409FC00748D85 /* Chic PassUITests */,
 				5FCBAE61257409F700748D85 /* Products */,
+				0AAE9A8385AC034C46B11A85 /* Pods */,
+				747464CFD39963EE83683190 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +166,7 @@
 		5FCBAE62257409F700748D85 /* Chic Pass */ = {
 			isa = PBXGroup;
 			children = (
+				5F94B3D8257BE3FA0049940B /* Utils */,
 				5F1222D0257577E30007AE44 /* UtilsUI */,
 				5FEF5E0C2574449C003E7146 /* Controllers */,
 				5FCBAEA4257413BC00748D85 /* ViewCells */,
@@ -179,6 +221,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		747464CFD39963EE83683190 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D81C956A6FE3CF7EE358278C /* Pods_Chic_Pass.framework */,
+				ADE83EF133B5BCD787A09062 /* Pods_Chic_Pass_Chic_PassUITests.framework */,
+				9360992C2F7F7E1B892108C3 /* Pods_Chic_PassTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FCBAE8D257409FC00748D85 /* Build configuration list for PBXNativeTarget "Chic Pass" */;
 			buildPhases = (
+				05157980DC62AF5E4BB2C750 /* [CP] Check Pods Manifest.lock */,
 				5FCBAE5C257409F700748D85 /* Sources */,
 				5FCBAE5D257409F700748D85 /* Frameworks */,
 				5FCBAE5E257409F700748D85 /* Resources */,
+				5237A8454EF9198C1C11D8FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +257,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FCBAE90257409FC00748D85 /* Build configuration list for PBXNativeTarget "Chic PassTests" */;
 			buildPhases = (
+				7E2D41810237ED5A0891554B /* [CP] Check Pods Manifest.lock */,
 				5FCBAE75257409FC00748D85 /* Sources */,
 				5FCBAE76257409FC00748D85 /* Frameworks */,
 				5FCBAE77257409FC00748D85 /* Resources */,
@@ -221,9 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FCBAE93257409FC00748D85 /* Build configuration list for PBXNativeTarget "Chic PassUITests" */;
 			buildPhases = (
+				3663266B6D30C93A804CB12E /* [CP] Check Pods Manifest.lock */,
 				5FCBAE80257409FC00748D85 /* Sources */,
 				5FCBAE81257409FC00748D85 /* Frameworks */,
 				5FCBAE82257409FC00748D85 /* Resources */,
+				0677E7EBC7238A0D5B615A76 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -304,6 +361,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05157980DC62AF5E4BB2C750 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chic Pass-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0677E7EBC7238A0D5B615A76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chic Pass-Chic PassUITests/Pods-Chic Pass-Chic PassUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chic Pass-Chic PassUITests/Pods-Chic Pass-Chic PassUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chic Pass-Chic PassUITests/Pods-Chic Pass-Chic PassUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3663266B6D30C93A804CB12E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chic Pass-Chic PassUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5237A8454EF9198C1C11D8FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chic Pass/Pods-Chic Pass-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chic Pass/Pods-Chic Pass-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chic Pass/Pods-Chic Pass-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E2D41810237ED5A0891554B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chic PassTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5FCBAE5C257409F700748D85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -311,6 +471,7 @@
 			files = (
 				5F1222C725756B700007AE44 /* MetricsController.swift in Sources */,
 				5FCBAE68257409F700748D85 /* VaultsController.swift in Sources */,
+				5F94B3DA257BE40D0049940B /* Security.swift in Sources */,
 				5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */,
 				5FCBAE64257409F700748D85 /* AppDelegate.swift in Sources */,
 				5F1222D2257578010007AE44 /* UITextField.swift in Sources */,
@@ -493,6 +654,7 @@
 		};
 		5FCBAE8E257409FC00748D85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 621D2634BD9179408B813956 /* Pods-Chic Pass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -512,6 +674,7 @@
 		};
 		5FCBAE8F257409FC00748D85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90C353C8275FDDE3F730F0B8 /* Pods-Chic Pass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -531,6 +694,7 @@
 		};
 		5FCBAE91257409FC00748D85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F0F64E8BDA931CBFCF112FE /* Pods-Chic PassTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -552,6 +716,7 @@
 		};
 		5FCBAE92257409FC00748D85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D6A79E2E2CF8376725C0DFB /* Pods-Chic PassTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -573,6 +738,7 @@
 		};
 		5FCBAE94257409FC00748D85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83AB08558693B56B321B1DF4 /* Pods-Chic Pass-Chic PassUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -592,6 +758,7 @@
 		};
 		5FCBAE95257409FC00748D85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A39D87989A04D54E7F4F11CD /* Pods-Chic Pass-Chic PassUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

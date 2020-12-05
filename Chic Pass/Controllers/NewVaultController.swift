@@ -82,15 +82,17 @@ class NewVaultController: UIViewController {
         let vaultName = nameTextField.text
         
         DispatchQueue.global().async {
-            let vault = Vault(context: context)
-            vault.id = UUID.init()
-            vault.name = vaultName
-            vault.signature = "signature"
-            vault.createdAt = Date()
-            vault.updatedAt = Date()
-            
             do {
-               try context.save()
+                let signature = try Security.encryptData(key: password, data: Security.signature)
+
+                let vault = Vault(context: context)
+                vault.id = UUID.init()
+                vault.name = vaultName
+                vault.signature = signature
+                vault.createdAt = Date()
+                vault.updatedAt = Date()
+
+                try context.save()
             } catch {
                 let nsError = error as NSError
                 let defaultLog = Logger()
@@ -139,15 +141,15 @@ class NewVaultController: UIViewController {
             mediumView.backgroundColor = UIColor.secondarySystemBackground
             goodView.backgroundColor = UIColor.secondarySystemBackground
             veryGoodView.backgroundColor = UIColor.secondarySystemBackground
-        } else if textField.text!.count <= 12 {
+        } else if textField.text!.count <= 10 {
             weakView.backgroundColor = UIColor.orange
             mediumView.backgroundColor = UIColor.orange
             goodView.backgroundColor = UIColor.secondarySystemBackground
             veryGoodView.backgroundColor = UIColor.secondarySystemBackground
-        }  else if textField.text!.count <= 16 {
-            weakView.backgroundColor = UIColor.green
-            mediumView.backgroundColor = UIColor.green
-            goodView.backgroundColor = UIColor.green
+        }  else if textField.text!.count <= 13 {
+            weakView.backgroundColor = UIColor.yellow
+            mediumView.backgroundColor = UIColor.yellow
+            goodView.backgroundColor = UIColor.yellow
             veryGoodView.backgroundColor = UIColor.secondarySystemBackground
         } else {
             weakView.backgroundColor = UIColor.green
