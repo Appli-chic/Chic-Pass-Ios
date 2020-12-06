@@ -122,12 +122,14 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
                     self.dismiss(animated: false)
                 }
             } catch {
-                let nsError = error as NSError
-                let defaultLog = Logger()
-                defaultLog.error("Error creating a vault: \(nsError)")
-                
-                loadingAlert.dismiss()
-                self.addButton.isEnabled = true
+                DispatchQueue.main.async {
+                    let nsError = error as NSError
+                    let defaultLog = Logger()
+                    defaultLog.error("Error creating a vault: \(nsError)")
+                    
+                    loadingAlert.dismiss()
+                    self.addButton.isEnabled = true
+                }
             }
         }
     }

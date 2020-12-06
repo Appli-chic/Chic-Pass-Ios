@@ -89,21 +89,28 @@ class UnlockVaultController: UIViewController {
                 }
                 
                 // Password isn't the right one
-                loadingAlert.dismiss()
-                self.unlockButton.isEnabled = true
-                
-                let alert = UIAlertController(title: "Error", message: "The password doesn't match", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                self.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.showAlertPasswordDontMatch(loadingAlert: loadingAlert)
+                }
             } catch {
-                let nsError = error as NSError
-                let defaultLog = Logger()
-                defaultLog.error("Error unlocking vault: \(nsError)")
-                
-                loadingAlert.dismiss()
-                self.unlockButton.isEnabled = true
+                DispatchQueue.main.async {
+                    let nsError = error as NSError
+                    let defaultLog = Logger()
+                    defaultLog.error("Error unlocking vault: \(nsError)")
+                    
+                    self.showAlertPasswordDontMatch(loadingAlert: loadingAlert)
+                }
             }
         }
+    }
+    
+    private func showAlertPasswordDontMatch(loadingAlert: JGProgressHUD) {
+        loadingAlert.dismiss()
+        self.unlockButton.isEnabled = true
+        
+        let alert = UIAlertController(title: "Error", message: "The password doesn't match", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func onPasswordIconTapped(_ sender: UITapGestureRecognizer? = nil) {
