@@ -88,7 +88,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="New Vault" id="9c6-R9-mzc">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pE8-Hj-rg3">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pE8-Hj-rg3">
                                             <color key="tintColor" systemColor="systemRedColor"/>
                                             <connections>
                                                 <action selector="onCancelClicked:" destination="VB4-TB-Aon" id="VBs-DW-Hw4"/>
@@ -369,6 +369,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="always" id="vN9-jc-fsc">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="noO-Zq-Dys">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="onBackClicked:" destination="dqd-af-3ME" id="NDQ-qS-tAk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VOX-Kl-mhp">
                             <color key="tintColor" systemColor="systemRedColor"/>
                         </barButtonItem>
@@ -530,6 +536,7 @@
     </scenes>
     <resources>
         <image name="chart.bar.fill" catalog="system" width="128" height="92"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
