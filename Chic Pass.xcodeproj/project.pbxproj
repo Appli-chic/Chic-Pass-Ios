@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		48FBCD0136F8A4556D236ABA /* Pods_Chic_Pass_Chic_PassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE83EF133B5BCD787A09062 /* Pods_Chic_Pass_Chic_PassUITests.framework */; };
+		5F01F1EE257CD2F5003CDAE2 /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01F1ED257CD2F5003CDAE2 /* PasswordTableViewCell.swift */; };
 		5F1222BD25756B170007AE44 /* PasswordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222BC25756B170007AE44 /* PasswordsController.swift */; };
 		5F1222C225756B4B0007AE44 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222C125756B4B0007AE44 /* CategoriesController.swift */; };
 		5F1222C725756B700007AE44 /* MetricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222C625756B700007AE44 /* MetricsController.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0F0F64E8BDA931CBFCF112FE /* Pods-Chic PassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic PassTests.debug.xcconfig"; path = "Target Support Files/Pods-Chic PassTests/Pods-Chic PassTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5F01F1ED257CD2F5003CDAE2 /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
 		5F1222BC25756B170007AE44 /* PasswordsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordsController.swift; sourceTree = "<group>"; };
 		5F1222C125756B4B0007AE44 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		5F1222C625756B700007AE44 /* MetricsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsController.swift; sourceTree = "<group>"; };
@@ -121,7 +123,6 @@
 				0F0F64E8BDA931CBFCF112FE /* Pods-Chic PassTests.debug.xcconfig */,
 				9D6A79E2E2CF8376725C0DFB /* Pods-Chic PassTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -203,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				5FCBAEA5257413F400748D85 /* VaultTableViewCell.swift */,
+				5F01F1ED257CD2F5003CDAE2 /* PasswordTableViewCell.swift */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -471,6 +473,7 @@
 			files = (
 				5F1222C725756B700007AE44 /* MetricsController.swift in Sources */,
 				5FCBAE68257409F700748D85 /* VaultsController.swift in Sources */,
+				5F01F1EE257CD2F5003CDAE2 /* PasswordTableViewCell.swift in Sources */,
 				5F94B3DA257BE40D0049940B /* Security.swift in Sources */,
 				5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */,
 				5FCBAE64257409F700748D85 /* AppDelegate.swift in Sources */,

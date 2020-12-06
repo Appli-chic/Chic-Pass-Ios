@@ -284,9 +284,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Pe-e4p">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Pe-e4p">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="passwordRow" id="Thq-8y-8lw" customClass="PasswordTableViewCell" customModule="Chic_Pass" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Thq-8y-8lw" id="i6l-Z2-f76">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJl-na-g6M">
+                                                    <rect key="frame" x="20" y="16" width="40" height="40"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vW3-gL-5bX">
+                                                            <rect key="frame" x="5" y="6.5" width="30" height="26.5"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="6ak-WQ-Zd0"/>
+                                                                <constraint firstAttribute="height" constant="30" id="yAb-Sh-Sl3"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="5oh-SS-Pi6"/>
+                                                        <constraint firstItem="vW3-gL-5bX" firstAttribute="top" secondItem="tJl-na-g6M" secondAttribute="top" constant="5" id="FQV-OC-UIz"/>
+                                                        <constraint firstItem="vW3-gL-5bX" firstAttribute="leading" secondItem="tJl-na-g6M" secondAttribute="leading" constant="5" id="N3v-dR-H3b"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vW3-gL-5bX" secondAttribute="trailing" constant="5" id="QVV-3n-8qS"/>
+                                                        <constraint firstAttribute="width" constant="40" id="sfK-Lw-agW"/>
+                                                        <constraint firstAttribute="bottom" secondItem="vW3-gL-5bX" secondAttribute="bottom" constant="5" id="ykJ-oJ-v3y"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gmail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXU-vd-8Y6">
+                                                    <rect key="frame" x="76" y="18" width="302" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="applichic@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pps-WB-btS">
+                                                    <rect key="frame" x="76" y="38" width="302" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aXU-vd-8Y6" firstAttribute="top" secondItem="i6l-Z2-f76" secondAttribute="topMargin" constant="7" id="6Se-XX-jK3"/>
+                                                <constraint firstItem="tJl-na-g6M" firstAttribute="leading" secondItem="i6l-Z2-f76" secondAttribute="leading" constant="20" symbolic="YES" id="6gA-l9-weR"/>
+                                                <constraint firstItem="Pps-WB-btS" firstAttribute="top" secondItem="i6l-Z2-f76" secondAttribute="topMargin" constant="27" id="7jo-7i-njT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Pps-WB-btS" secondAttribute="bottom" constant="7" id="CCh-nn-Jgo"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aXU-vd-8Y6" secondAttribute="bottom" constant="22" id="Hns-rh-3V4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Pps-WB-btS" secondAttribute="trailing" constant="16" id="TJC-9T-Mub"/>
+                                                <constraint firstAttribute="bottom" secondItem="tJl-na-g6M" secondAttribute="bottom" constant="16" id="dIS-xM-Aob"/>
+                                                <constraint firstItem="Pps-WB-btS" firstAttribute="leading" secondItem="tJl-na-g6M" secondAttribute="trailing" constant="16" id="e0u-dN-tGb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="aXU-vd-8Y6" secondAttribute="trailing" constant="16" id="eQN-Np-ZG6"/>
+                                                <constraint firstItem="aXU-vd-8Y6" firstAttribute="leading" secondItem="tJl-na-g6M" secondAttribute="trailing" constant="16" id="tA0-of-BPb"/>
+                                                <constraint firstItem="tJl-na-g6M" firstAttribute="top" secondItem="i6l-Z2-f76" secondAttribute="top" constant="16" id="vA3-pW-LcX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="email" destination="Pps-WB-btS" id="gdm-dW-chz"/>
+                                            <outlet property="icon" destination="vW3-gL-5bX" id="XhZ-6N-cDj"/>
+                                            <outlet property="iconBackground" destination="tJl-na-g6M" id="mkM-Am-4ke"/>
+                                            <outlet property="title" destination="aXU-vd-8Y6" id="B0F-eY-6QH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VHj-ob-7qi"/>
@@ -460,6 +530,7 @@
     </scenes>
     <resources>
         <image name="chart.bar.fill" catalog="system" width="128" height="92"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
