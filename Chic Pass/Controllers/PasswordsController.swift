@@ -17,8 +17,10 @@ class PasswordsController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         tableView.dataSource = self
+        searchController.obscuresBackgroundDuringPresentation = false;
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.red
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

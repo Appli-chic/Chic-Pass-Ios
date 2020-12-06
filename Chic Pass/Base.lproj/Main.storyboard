@@ -69,7 +69,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Oab-mc-moc" id="aP2-8t-4bO"/>
-                        <segue destination="rKa-vF-0Rk" kind="show" identifier="segue_vaults_to_home" id="tex-sG-6av"/>
+                        <segue destination="8FD-y0-ZX5" kind="presentation" identifier="segue_vaults_to_unlock" id="6XD-Q8-jIu"/>
+                        <segue destination="rKa-vF-0Rk" kind="show" identifier="segue_vaults_to_main" id="SHe-xX-Khd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f20-lq-fdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -285,7 +286,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Pe-e4p">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="passwordRow" id="Thq-8y-8lw" customClass="PasswordTableViewCell" customModule="Chic_Pass" customModuleProvider="target">
@@ -387,10 +388,93 @@
             </objects>
             <point key="canvasLocation" x="3905.7971014492755" y="114.50892857142857"/>
         </scene>
+        <!--Unlock Vault Controller-->
+        <scene sceneID="xl3-Dh-qTm">
+            <objects>
+                <viewController id="8FD-y0-ZX5" customClass="UnlockVaultController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QCF-rC-UY5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80z-Nz-T23">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Unlock Vault" id="VNv-fZ-uQ9">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="whA-Gn-CUx">
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="onCancelClicked:" destination="8FD-y0-ZX5" id="UCR-85-9lN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Unlock" id="DxS-B5-7pl">
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="onUnlockingVault:" destination="8FD-y0-ZX5" id="5WO-bZ-e3R"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.shield.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="X8Y-U0-wjM">
+                                <rect key="frame" x="157" y="72.5" width="100" height="99"/>
+                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="NBT-Xw-qyw"/>
+                                    <constraint firstAttribute="width" constant="100" id="afC-qd-R2g"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="The password to unlock your vault" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHU-LX-HFG">
+                                <rect key="frame" x="20" y="216" width="374" height="56"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="RaL-L5-zBt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z8-me-1lc">
+                                <rect key="frame" x="20" y="188" width="374" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qXl-CB-bLD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X8Y-U0-wjM" firstAttribute="centerX" secondItem="QCF-rC-UY5" secondAttribute="centerX" id="1RR-eD-Zxo"/>
+                            <constraint firstItem="80z-Nz-T23" firstAttribute="top" secondItem="qXl-CB-bLD" secondAttribute="top" id="4yp-qg-7Ag"/>
+                            <constraint firstItem="qXl-CB-bLD" firstAttribute="trailing" secondItem="GHU-LX-HFG" secondAttribute="trailing" constant="20" id="9pL-h0-Pv3"/>
+                            <constraint firstItem="GHU-LX-HFG" firstAttribute="top" secondItem="0z8-me-1lc" secondAttribute="bottom" constant="8" symbolic="YES" id="9rN-nY-xhA"/>
+                            <constraint firstItem="0z8-me-1lc" firstAttribute="leading" secondItem="qXl-CB-bLD" secondAttribute="leading" constant="20" id="AvW-rj-4To"/>
+                            <constraint firstItem="GHU-LX-HFG" firstAttribute="top" secondItem="0z8-me-1lc" secondAttribute="bottom" constant="8" symbolic="YES" id="Kix-HW-Xk4"/>
+                            <constraint firstItem="X8Y-U0-wjM" firstAttribute="top" secondItem="80z-Nz-T23" secondAttribute="bottom" constant="16" id="Sa1-K6-VNL"/>
+                            <constraint firstItem="GHU-LX-HFG" firstAttribute="leading" secondItem="qXl-CB-bLD" secondAttribute="leading" constant="20" id="bT5-LL-D0c"/>
+                            <constraint firstItem="0z8-me-1lc" firstAttribute="top" secondItem="X8Y-U0-wjM" secondAttribute="bottom" constant="16" id="cWf-ca-adH"/>
+                            <constraint firstItem="80z-Nz-T23" firstAttribute="leading" secondItem="qXl-CB-bLD" secondAttribute="leading" id="gzL-ys-3qS"/>
+                            <constraint firstItem="qXl-CB-bLD" firstAttribute="trailing" secondItem="0z8-me-1lc" secondAttribute="trailing" constant="20" id="jg5-Yd-DLw"/>
+                            <constraint firstItem="80z-Nz-T23" firstAttribute="trailing" secondItem="qXl-CB-bLD" secondAttribute="trailing" id="tNL-nn-T6g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="GHU-LX-HFG" id="WKN-Sq-829"/>
+                        <outlet property="unlockButton" destination="DxS-B5-7pl" id="U2e-dt-YN8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="33H-h2-e0s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157" y="854"/>
+        </scene>
         <!--Home-->
         <scene sceneID="nVp-hy-wXr">
             <objects>
                 <tabBarController title="Home" id="rKa-vF-0Rk" customClass="MainTabBarController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qXf-Xy-peI"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="whO-nR-BqX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

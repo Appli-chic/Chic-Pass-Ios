@@ -13,6 +13,10 @@ extension Notification.Name {
     static var newVaultDismissed: Notification.Name {
         return .init(rawValue: "newVaultDismissed")
     }
+    
+    static var vaultUnlocked: Notification.Name {
+        return .init(rawValue: "vaultUnlocked")
+    }
 }
 
 class VaultsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -29,6 +33,13 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
             self,
             selector: #selector(onNewVaultDismissed),
             name: .newVaultDismissed,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onVaultUnlocked),
+            name: .vaultUnlocked,
             object: nil
         )
     }
@@ -66,8 +77,8 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "vaultRow", for: indexPath) as! VaultTableViewCell
-        performSegue(withIdentifier: "segue_vaults_to_home", sender: cell)
+        let vault = vaults[indexPath.row]
+        performSegue(withIdentifier: "segue_vaults_to_unlock", sender: vault)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,7 +100,17 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     @objc private func onNewVaultDismissed(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "segue_vaults_to_main", sender: nil)
+        }
+        
         loadVaults()
+    }
+    
+    @objc private func onVaultUnlocked(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "segue_vaults_to_main", sender: nil)
+        }
     }
     
     private func deleteVault(indexPath: IndexPath) {
@@ -104,6 +125,13 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
             let nsError = error as NSError
             let defaultLog = Logger()
             defaultLog.error("Error deleting a vault: \(nsError)")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue_vaults_to_unlock" && sender is Vault {
+            let unlockVaultController = segue.destination as! UnlockVaultController
+            unlockVaultController.vault = sender as? Vault
         }
     }
 }
