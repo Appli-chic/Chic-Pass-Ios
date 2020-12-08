@@ -8,6 +8,7 @@
 import UIKit
 import JGProgressHUD
 import os
+import LocalAuthentication
 
 class UnlockVaultController: UIViewController {
     @IBOutlet weak var unlockButton: UIBarButtonItem!
@@ -42,6 +43,23 @@ class UnlockVaultController: UIViewController {
         
         passwordTextField.rightView = passwordIconView
         passwordTextField.rightViewMode = .always
+        
+        // Start unlock through face ID
+        let context = LAContext()
+        
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock your vault" ) { success, error in
+
+            if success {
+
+                // Move to the main thread because a state update triggers UI changes.
+                DispatchQueue.main.async { [unowned self] in
+                    NotificationCenter.default.post(name: .vaultUnlocked, object: nil)
+                    self.dismiss(animated: false)
+                }
+            } else {
+                print(error?.localizedDescription ?? "Failed to authenticate")
+            }
+        }
     }
     
     @IBAction func onCancelClicked(_ sender: Any) {

@@ -270,12 +270,30 @@
                     <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="Baf-5J-PEr">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="KSa-vb-X8E">
                             <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <segue destination="KFu-4F-wCO" kind="presentation" id="GAj-Zf-7c2"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92I-Vc-Al7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3905.7971014492755" y="853.79464285714278"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="P35-9v-xjK">
+            <objects>
+                <viewController id="KFu-4F-wCO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="THF-jj-IC9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="h1k-UH-WbS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jSL-87-yV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4886" y="854"/>
         </scene>
         <!--Passwords-->
         <scene sceneID="4h0-Qb-2zC">
@@ -286,7 +304,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Pe-e4p">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="passwordRow" id="Thq-8y-8lw" customClass="PasswordTableViewCell" customModule="Chic_Pass" customModuleProvider="target">
