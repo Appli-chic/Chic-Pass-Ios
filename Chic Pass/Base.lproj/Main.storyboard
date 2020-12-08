@@ -267,7 +267,14 @@
                         <viewLayoutGuide key="safeArea" id="aeV-Ps-E68"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="Baf-5J-PEr">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="aKx-Yb-9c1">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="onBackClicked:" destination="HsH-O0-NRr" id="1jC-lj-qvA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="KSa-vb-X8E">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
@@ -275,25 +282,112 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92I-Vc-Al7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3905.7971014492755" y="853.79464285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--New Category Controller-->
         <scene sceneID="P35-9v-xjK">
             <objects>
-                <viewController id="KFu-4F-wCO" sceneMemberID="viewController">
+                <viewController id="KFu-4F-wCO" customClass="NewCategoryController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="THF-jj-IC9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJh-kH-HSC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="New Category" id="u98-Fy-VFt">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xff-wV-fQZ">
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="onCancel:" destination="KFu-4F-wCO" id="jxU-qr-UnF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" style="done" id="44l-X3-Agd">
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="onAddingCategory:" destination="KFu-4F-wCO" id="j8M-cx-dGm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-Ka-mq4">
+                                <rect key="frame" x="20" y="76" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubc-2W-b3g">
+                                <rect key="frame" x="20" y="179.5" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game, Productivity, Culture, etc..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-Bh-sIe">
+                                <rect key="frame" x="20" y="103.5" width="374" height="56"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="iv8-ZN-zDg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hY8-pV-pBd">
+                                <rect key="frame" x="20" y="207" width="374" height="38"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
+                                <state key="normal" title="Choose your color">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSelectingColor:" destination="KFu-4F-wCO" eventType="touchUpInside" id="Yew-JT-HYs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="h1k-UH-WbS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hY8-pV-pBd" firstAttribute="top" secondItem="Ubc-2W-b3g" secondAttribute="bottom" constant="8" symbolic="YES" id="0gg-rb-uSB"/>
+                            <constraint firstItem="h1k-UH-WbS" firstAttribute="trailing" secondItem="hY8-pV-pBd" secondAttribute="trailing" constant="20" id="3Zp-Ls-igV"/>
+                            <constraint firstItem="hY8-pV-pBd" firstAttribute="leading" secondItem="h1k-UH-WbS" secondAttribute="leading" constant="20" id="5pA-qf-OH5"/>
+                            <constraint firstItem="Ubc-2W-b3g" firstAttribute="top" secondItem="4pQ-Bh-sIe" secondAttribute="bottom" constant="20" id="FO9-VR-4EF"/>
+                            <constraint firstItem="h1k-UH-WbS" firstAttribute="trailing" secondItem="AGL-Ka-mq4" secondAttribute="trailing" constant="20" id="FiM-XW-ijP"/>
+                            <constraint firstItem="4pQ-Bh-sIe" firstAttribute="top" secondItem="AGL-Ka-mq4" secondAttribute="bottom" constant="8" symbolic="YES" id="Q5W-Vv-l3a"/>
+                            <constraint firstItem="4pQ-Bh-sIe" firstAttribute="top" secondItem="AGL-Ka-mq4" secondAttribute="bottom" constant="8" symbolic="YES" id="QbU-dn-79O"/>
+                            <constraint firstItem="sJh-kH-HSC" firstAttribute="trailing" secondItem="h1k-UH-WbS" secondAttribute="trailing" id="SPq-gc-we2"/>
+                            <constraint firstItem="AGL-Ka-mq4" firstAttribute="leading" secondItem="h1k-UH-WbS" secondAttribute="leading" constant="20" id="Xto-xF-gwK"/>
+                            <constraint firstItem="h1k-UH-WbS" firstAttribute="trailing" secondItem="Ubc-2W-b3g" secondAttribute="trailing" constant="20" id="Z3a-rK-bVd"/>
+                            <constraint firstItem="AGL-Ka-mq4" firstAttribute="top" secondItem="sJh-kH-HSC" secondAttribute="bottom" constant="20" id="bcd-UF-E1z"/>
+                            <constraint firstItem="h1k-UH-WbS" firstAttribute="trailing" secondItem="4pQ-Bh-sIe" secondAttribute="trailing" constant="20" id="mrU-oM-xy1"/>
+                            <constraint firstItem="sJh-kH-HSC" firstAttribute="leading" secondItem="h1k-UH-WbS" secondAttribute="leading" id="mz4-1u-Upy"/>
+                            <constraint firstItem="sJh-kH-HSC" firstAttribute="top" secondItem="h1k-UH-WbS" secondAttribute="top" id="sUS-SA-e9z"/>
+                            <constraint firstItem="Ubc-2W-b3g" firstAttribute="leading" secondItem="h1k-UH-WbS" secondAttribute="leading" constant="20" id="x31-Kz-jri"/>
+                            <constraint firstItem="4pQ-Bh-sIe" firstAttribute="leading" secondItem="h1k-UH-WbS" secondAttribute="leading" constant="20" id="ymi-I5-IBT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colorButton" destination="hY8-pV-pBd" id="7Dk-Tf-7a2"/>
+                        <outlet property="nameTextField" destination="4pQ-Bh-sIe" id="zMZ-L7-ZbP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSL-87-yV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4886" y="854"/>
+            <point key="canvasLocation" x="4885.507246376812" y="853.79464285714278"/>
         </scene>
         <!--Passwords-->
         <scene sceneID="4h0-Qb-2zC">
