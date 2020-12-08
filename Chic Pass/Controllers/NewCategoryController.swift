@@ -10,6 +10,8 @@ import UIKit
 class NewCategoryController: UIViewController, UIColorPickerViewControllerDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var iconView: UIView!
+    @IBOutlet weak var iconImage: UIImageView!
     
     private var color: UIColor? = nil
 
@@ -18,6 +20,9 @@ class NewCategoryController: UIViewController, UIColorPickerViewControllerDelega
 
         nameTextField.setLeftPaddingPoints(16)
         nameTextField.setRightPaddingPoints(16)
+        
+        let iconTap = UITapGestureRecognizer(target: self, action: #selector(self.onIconTapped(_:)))
+        iconView.addGestureRecognizer(iconTap)
     }
     
     @IBAction func onAddingCategory(_ sender: Any) {
@@ -37,5 +42,10 @@ class NewCategoryController: UIViewController, UIColorPickerViewControllerDelega
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         color = viewController.selectedColor
         colorButton.backgroundColor = color
+        iconView.backgroundColor = color
+    }
+    
+    @objc func onIconTapped(_ sender: UITapGestureRecognizer? = nil) {
+        self.performSegue(withIdentifier: "choose_icon", sender: nil)
     }
 }
