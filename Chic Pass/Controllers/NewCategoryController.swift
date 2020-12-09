@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import os
+import JGProgressHUD
+
+extension Notification.Name {
+    static var changeIcon: Notification.Name {
+        return .init(rawValue: "changeIcon")
+    }
+}
 
 class NewCategoryController: UIViewController, UIColorPickerViewControllerDelegate {
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var iconView: UIView!
     @IBOutlet weak var iconImage: UIImageView!
     
-    private var color: UIColor? = nil
+    private var color: UIColor = UIColor.red
+    private var iconName = "house.fill"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +34,60 @@ class NewCategoryController: UIViewController, UIColorPickerViewControllerDelega
         
         let iconTap = UITapGestureRecognizer(target: self, action: #selector(self.onIconTapped(_:)))
         iconView.addGestureRecognizer(iconTap)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onIconChanged),
+            name: .changeIcon,
+            object: nil
+        )
     }
     
     @IBAction func onAddingCategory(_ sender: Any) {
+        if nameTextField.text != nil && nameTextField.text!.isEmpty {
+            let alert = UIAlertController(title: "Error", message: "The name must not be empty", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
+        // Showing a loading alert
+        let loadingAlert = JGProgressHUD()
+        loadingAlert.textLabel.text = "Loading"
+        loadingAlert.hudView.backgroundColor = UIColor.secondarySystemBackground
+        loadingAlert.show(in: self.view)
+        
+        // Prepare to add the category to the local database
+        let context = appDelegate.persistentContainer.viewContext
+        let name = nameTextField.text!
+        
+        // Adding the category
+        DispatchQueue.global().async {
+            do {
+                let category = Category(context: context)
+                category.id = UUID.init()
+                category.name = name
+                category.icon = self.iconName
+                category.color = self.color.toHex()
+                category.createdAt = Date()
+                category.updatedAt = Date()
+
+                try context.save()
+                
+                DispatchQueue.main.async {
+                    loadingAlert.dismiss()
+                    self.dismiss(animated: true)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    let nsError = error as NSError
+                    let defaultLog = Logger()
+                    defaultLog.error("Error creating a category: \(nsError)")
+                    
+                    loadingAlert.dismiss()
+                }
+            }
+        }
     }
     
     @IBAction func onCancel(_ sender: Any) {
@@ -47,5 +108,17 @@ class NewCategoryController: UIViewController, UIColorPickerViewControllerDelega
     
     @objc func onIconTapped(_ sender: UITapGestureRecognizer? = nil) {
         self.performSegue(withIdentifier: "choose_icon", sender: nil)
+    }
+    
+    @objc private func onIconChanged(_ notification: Notification) {
+        iconName = notification.object as! String
+        iconImage.image = UIImage(systemName: iconName)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "choose_icon" {
+            let iconsController = segue.destination as! IconsController
+            iconsController.selectedIcon = iconsController.icons.lastIndex(of: iconName)!
+        }
     }
 }

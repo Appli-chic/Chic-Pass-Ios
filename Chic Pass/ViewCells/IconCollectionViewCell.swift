@@ -9,4 +9,5 @@ import UIKit
 
 class IconCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var view: UIView!
 }
