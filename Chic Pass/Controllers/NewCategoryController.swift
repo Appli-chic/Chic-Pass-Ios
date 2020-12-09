@@ -76,6 +76,7 @@ class NewCategoryController: UIViewController, UIColorPickerViewControllerDelega
                 
                 DispatchQueue.main.async {
                     loadingAlert.dismiss()
+                    NotificationCenter.default.post(name: .categoryCreated, object: nil)
                     self.dismiss(animated: true)
                 }
             } catch {

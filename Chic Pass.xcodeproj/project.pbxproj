@@ -20,6 +20,7 @@
 		5F4C7E0625803D910031A2F4 /* IconsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E0525803D910031A2F4 /* IconsController.swift */; };
 		5F4C7E0B25803FA20031A2F4 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E0A25803FA20031A2F4 /* IconCollectionViewCell.swift */; };
 		5F78F18625816BD400D65DD2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78F18525816BD400D65DD2 /* Color.swift */; };
+		5F78F18B25816F9600D65DD2 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78F18A25816F9600D65DD2 /* CategoryTableViewCell.swift */; };
 		5F94B3DA257BE40D0049940B /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F94B3D9257BE40D0049940B /* Security.swift */; };
 		5FCBAE64257409F700748D85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE63257409F700748D85 /* AppDelegate.swift */; };
 		5FCBAE66257409F700748D85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAE65257409F700748D85 /* SceneDelegate.swift */; };
@@ -67,6 +68,7 @@
 		5F4C7E0525803D910031A2F4 /* IconsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsController.swift; sourceTree = "<group>"; };
 		5F4C7E0A25803FA20031A2F4 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F78F18525816BD400D65DD2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		5F78F18A25816F9600D65DD2 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		5F94B3D9257BE40D0049940B /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		5FCBAE60257409F700748D85 /* Chic Pass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chic Pass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCBAE63257409F700748D85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				5FCBAEA5257413F400748D85 /* VaultTableViewCell.swift */,
 				5F01F1ED257CD2F5003CDAE2 /* PasswordTableViewCell.swift */,
 				5F4C7E0A25803FA20031A2F4 /* IconCollectionViewCell.swift */,
+				5F78F18A25816F9600D65DD2 /* CategoryTableViewCell.swift */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				5F4C7E0625803D910031A2F4 /* IconsController.swift in Sources */,
 				5FEF5E1525744A41003E7146 /* NewVaultController.swift in Sources */,
 				5F1222CC25756CC80007AE44 /* SettingsController.swift in Sources */,
+				5F78F18B25816F9600D65DD2 /* CategoryTableViewCell.swift in Sources */,
 				5FCBAE6E257409F700748D85 /* Chic_Pass.xcdatamodeld in Sources */,
 				5FCBAEA6257413F400748D85 /* VaultTableViewCell.swift in Sources */,
 				5F1222C225756B4B0007AE44 /* CategoriesController.swift in Sources */,
