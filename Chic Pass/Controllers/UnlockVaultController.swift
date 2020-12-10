@@ -98,6 +98,7 @@ class UnlockVaultController: UIViewController {
                     
                     if signature == Security.signature {
                         DispatchQueue.main.async {
+                            SelectedVault.data.password = password!
                             loadingAlert.dismiss()
                             NotificationCenter.default.post(name: .vaultUnlocked, object: nil)
                             self.dismiss(animated: false)

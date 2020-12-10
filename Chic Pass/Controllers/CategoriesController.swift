@@ -54,6 +54,8 @@ class CategoriesController: UIViewController, UITableViewDataSource, UITableView
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
+        let predicate = NSPredicate(format: "vault.id == %@", SelectedVault.data.vault.id! as CVarArg)
+        fetchRequest.predicate = predicate
         
         do {
             categories = try managedContext.fetch(fetchRequest)

@@ -78,6 +78,7 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vault = vaults[indexPath.row]
+        SelectedVault.data.vault = vault
         performSegue(withIdentifier: "segue_vaults_to_unlock", sender: vault)
     }
     

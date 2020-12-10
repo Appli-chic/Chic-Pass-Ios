@@ -71,6 +71,7 @@ class NewCategoryController: UIViewController, UIColorPickerViewControllerDelega
                 category.color = self.color.toHex()
                 category.createdAt = Date()
                 category.updatedAt = Date()
+                category.vault = SelectedVault.data.vault
 
                 try context.save()
                 

@@ -108,7 +108,8 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
                 let signature = try Security.encryptData(key: password!, data: Security.signature)
 
                 let vault = Vault(context: context)
-                vault.id = UUID.init()
+                let uuid = UUID()
+                vault.id = uuid
                 vault.name = vaultName
                 vault.signature = signature
                 vault.createdAt = Date()
@@ -117,6 +118,8 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
                 try context.save()
                 
                 DispatchQueue.main.async {
+                    SelectedVault.data.vault = vault
+                    SelectedVault.data.password = password!
                     loadingAlert.dismiss()
                     NotificationCenter.default.post(name: .newVaultDismissed, object: nil)
                     self.dismiss(animated: false)
