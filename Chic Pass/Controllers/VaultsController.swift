@@ -83,16 +83,16 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vaults.count
+        vaults.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let deletedAlert = UIAlertController(title: "Warning",
                     message: "All the passwords contained in this vault will be deleted too",
-                    preferredStyle: UIAlertController.Style.alert)
+                    preferredStyle: UIAlertController.Style.actionSheet)
 
-            deletedAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
+            deletedAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 self.deleteVault(indexPath: indexPath)
             }))
 

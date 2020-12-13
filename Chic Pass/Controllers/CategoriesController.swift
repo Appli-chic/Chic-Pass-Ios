@@ -54,7 +54,7 @@ class CategoriesController: UIViewController, UITableViewDataSource, UITableView
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
-        let predicate = NSPredicate(format: "vault.id == %@", SelectedVault.data.vault.id! as CVarArg)
+        let predicate = NSPredicate(format: "vault.id == %@", SelectedVault.data.vault.id!.uuidString)
         fetchRequest.predicate = predicate
         
         do {
@@ -85,14 +85,14 @@ class CategoriesController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        categories.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let deletedAlert = UIAlertController(title: "Warning",
                     message: "All the passwords contained in this category will be deleted too",
-                    preferredStyle: UIAlertController.Style.alert)
+                    preferredStyle: UIAlertController.Style.actionSheet)
 
             deletedAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
                 self.deleteCategory(indexPath: indexPath)
