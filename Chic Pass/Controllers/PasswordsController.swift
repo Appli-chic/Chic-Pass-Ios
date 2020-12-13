@@ -11,7 +11,11 @@ class PasswordsController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private var passwords = ["Passwords", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "test", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password", "Password"]
+    private var passwords = ["Passwords", "Password", "Password", "Password", "Password", "Password", "Password",
+                             "Password", "Password", "Password", "Password", "Password", "Password", "Password",
+                             "Password", "Password", "Password", "test", "Password", "Password", "Password", "Password",
+                             "Password", "Password", "Password", "Password", "Password", "Password", "Password",
+                             "Password", "Password", "Password"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +39,9 @@ class PasswordsController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            let deletedAlert = UIAlertController(title: "Warning", message: "Are you sure to delete Gmail's password", preferredStyle: UIAlertController.Style.alert)
+            let deletedAlert = UIAlertController(title: "Warning",
+                    message: "Are you sure to delete Gmail's password",
+                    preferredStyle: UIAlertController.Style.alert)
 
             deletedAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
                 self.deletePassword(indexPath: indexPath)

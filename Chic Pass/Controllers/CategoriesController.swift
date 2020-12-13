@@ -11,7 +11,7 @@ import os
 
 extension Notification.Name {
     static var categoryCreated: Notification.Name {
-        return .init(rawValue: "categoryCreated")
+        .init(rawValue: "categoryCreated")
     }
 }
 
@@ -90,7 +90,9 @@ class CategoriesController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            let deletedAlert = UIAlertController(title: "Warning", message: "All the passwords contained in this category will be deleted too", preferredStyle: UIAlertController.Style.alert)
+            let deletedAlert = UIAlertController(title: "Warning",
+                    message: "All the passwords contained in this category will be deleted too",
+                    preferredStyle: UIAlertController.Style.alert)
 
             deletedAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
                 self.deleteCategory(indexPath: indexPath)

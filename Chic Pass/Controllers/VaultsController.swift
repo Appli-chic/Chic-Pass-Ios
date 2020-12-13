@@ -11,11 +11,11 @@ import CoreData
 
 extension Notification.Name {
     static var newVaultDismissed: Notification.Name {
-        return .init(rawValue: "newVaultDismissed")
+        .init(rawValue: "newVaultDismissed")
     }
     
     static var vaultUnlocked: Notification.Name {
-        return .init(rawValue: "vaultUnlocked")
+        .init(rawValue: "vaultUnlocked")
     }
 }
 
@@ -88,7 +88,9 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            let deletedAlert = UIAlertController(title: "Warning", message: "All the passwords contained in this vault will be deleted too", preferredStyle: UIAlertController.Style.alert)
+            let deletedAlert = UIAlertController(title: "Warning",
+                    message: "All the passwords contained in this vault will be deleted too",
+                    preferredStyle: UIAlertController.Style.alert)
 
             deletedAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
                 self.deleteVault(indexPath: indexPath)

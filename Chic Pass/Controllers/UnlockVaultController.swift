@@ -47,7 +47,8 @@ class UnlockVaultController: UIViewController {
         // Start unlock through face ID
         let context = LAContext()
         
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock your vault" ) { success, error in
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock your vault" ) {
+            success, error in
 
             if success {
 

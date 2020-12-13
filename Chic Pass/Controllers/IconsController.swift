@@ -10,7 +10,12 @@ import UIKit
 class IconsController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var iconCollectionView: UICollectionView!
     
-    let icons = ["house.fill", "doc.text.fill", "terminal.fill", "book.closed.fill", "graduationcap.fill", "globe", "music.note", "bubble.left.and.bubble.right.fill", "envelope.fill", "cart.fill", "creditcard.fill", "briefcase.fill", "puzzlepiece.fill", "building.columns.fill", "key.fill", "map.fill", "play.tv.fill", "bus.fill", "tram.fill", "cross.fill", "pills.fill", "film.fill", "photo.on.rectangle.angled", "gamecontroller.fill", "paintpalette.fill", "chart.bar.fill", "atom", "gift.fill", "airplane", "lightbulb.fill", "dollarsign.circle.fill"]
+    let icons = ["house.fill", "doc.text.fill", "terminal.fill", "book.closed.fill", "graduationcap.fill", "globe",
+                 "music.note", "bubble.left.and.bubble.right.fill", "envelope.fill", "cart.fill", "creditcard.fill",
+                 "briefcase.fill", "puzzlepiece.fill", "building.columns.fill", "key.fill", "map.fill", "play.tv.fill",
+                 "bus.fill", "tram.fill", "cross.fill", "pills.fill", "film.fill", "photo.on.rectangle.angled",
+                 "gamecontroller.fill", "paintpalette.fill", "chart.bar.fill", "atom", "gift.fill", "airplane",
+                 "lightbulb.fill", "dollarsign.circle.fill"]
     
     var selectedIcon = -1
     
@@ -28,7 +33,8 @@ class IconsController: UIViewController, UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath as IndexPath) as! IconCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath as IndexPath)
+                as! IconCollectionViewCell
         
         cell.icon.image = UIImage(systemName: icons[indexPath.row])
         

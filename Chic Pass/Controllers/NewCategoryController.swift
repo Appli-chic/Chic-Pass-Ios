@@ -11,7 +11,7 @@ import JGProgressHUD
 
 extension Notification.Name {
     static var changeIcon: Notification.Name {
-        return .init(rawValue: "changeIcon")
+        .init(rawValue: "changeIcon")
     }
 }
 
