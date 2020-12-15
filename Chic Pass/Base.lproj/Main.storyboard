@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MlR-0J-B1o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MlR-0J-B1o">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -62,7 +62,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Vaults" largeTitleDisplayMode="always" id="ug8-fq-wMR">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="4i9-5G-um5">
-                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <segue destination="VB4-TB-Aon" kind="presentation" id="jyJ-kA-RZt"/>
                             </connections>
@@ -91,13 +91,13 @@
                                 <items>
                                     <navigationItem title="New Vault" id="9c6-R9-mzc">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pE8-Hj-rg3">
-                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <color key="tintColor" systemColor="systemBlueColor"/>
                                             <connections>
                                                 <action selector="onCancelClicked:" destination="VB4-TB-Aon" id="VBs-DW-Hw4"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Add" style="done" id="bK9-DE-LII">
-                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <color key="tintColor" systemColor="systemBlueColor"/>
                                             <connections>
                                                 <action selector="onAddClicked:" destination="VB4-TB-Aon" id="0yP-1B-AQd"/>
                                             </connections>
@@ -340,13 +340,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="Baf-5J-PEr">
                         <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="aKx-Yb-9c1">
-                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <action selector="onBackClicked:" destination="HsH-O0-NRr" id="1jC-lj-qvA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="KSa-vb-X8E">
-                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <segue destination="gHI-et-69i" kind="presentation" id="E6K-Aw-zUH"/>
                             </connections>
@@ -366,23 +366,23 @@
             <objects>
                 <viewController id="KFu-4F-wCO" customClass="NewCategoryController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="THF-jj-IC9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-Ka-mq4">
-                                <rect key="frame" x="20" y="76" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubc-2W-b3g">
-                                <rect key="frame" x="20" y="179.5" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="167.5" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game, Productivity, Culture, etc..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-Bh-sIe">
-                                <rect key="frame" x="20" y="103.5" width="374" height="56"/>
+                                <rect key="frame" x="20" y="91.5" width="374" height="56"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="iv8-ZN-zDg"/>
@@ -396,7 +396,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hY8-pV-pBd">
-                                <rect key="frame" x="20" y="207" width="374" height="46"/>
+                                <rect key="frame" x="20" y="195" width="374" height="46"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
@@ -413,7 +413,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-91-EQx">
-                                <rect key="frame" x="20" y="301" width="50" height="50"/>
+                                <rect key="frame" x="20" y="289" width="50" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Iop-lN-mvQ">
                                         <rect key="frame" x="8" y="8" width="34" height="34"/>
@@ -436,7 +436,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8F-S3-bgX">
-                                <rect key="frame" x="20" y="273" width="374" height="20"/>
+                                <rect key="frame" x="20" y="261" width="374" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -484,12 +484,101 @@
                         <outlet property="iconImage" destination="Iop-lN-mvQ" id="xfZ-ZB-ROv"/>
                         <outlet property="iconView" destination="kbg-91-EQx" id="6sK-SS-ETX"/>
                         <outlet property="nameTextField" destination="4pQ-Bh-sIe" id="zMZ-L7-ZbP"/>
-                        <segue destination="thb-1P-Vsm" kind="show" identifier="choose_icon" id="tzu-Bo-ECp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSL-87-yV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6055" y="854"/>
+            <point key="canvasLocation" x="6875" y="1567"/>
+        </scene>
+        <!--New Category-->
+        <scene sceneID="dav-in-Sna">
+            <objects>
+                <tableViewController id="2V7-qT-hEd" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZHP-uo-L1T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="CGG-8X-MTN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43.5" id="pWG-UA-DGX">
+                                        <rect key="frame" x="20" y="18" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pWG-UA-DGX" id="Gc8-jy-eTx">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcg-km-TWJ">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" textContentType="name"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tcg-km-TWJ" firstAttribute="leading" secondItem="Gc8-jy-eTx" secondAttribute="leading" constant="20" symbolic="YES" id="AaD-cg-Jur"/>
+                                                <constraint firstAttribute="bottom" secondItem="tcg-km-TWJ" secondAttribute="bottom" id="FGP-9Y-S8H"/>
+                                                <constraint firstAttribute="trailing" secondItem="tcg-km-TWJ" secondAttribute="trailing" constant="20" symbolic="YES" id="XrS-uS-JGF"/>
+                                                <constraint firstItem="tcg-km-TWJ" firstAttribute="top" secondItem="Gc8-jy-eTx" secondAttribute="top" id="fqz-NO-fzW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Icon &amp; color" id="ZVR-Ba-CS2">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zla-h2-1RM" rowHeight="43.5" style="IBUITableViewCellStyleDefault" id="8qt-YU-IGH">
+                                        <rect key="frame" x="20" y="117.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8qt-YU-IGH" id="Yg2-5t-ZPH">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Choose an icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zla-h2-1RM">
+                                                    <rect key="frame" x="20" y="0.0" width="315" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="haV-MQ-XWl" style="IBUITableViewCellStyleDefault" id="SGN-Dj-KvN">
+                                        <rect key="frame" x="20" y="161" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SGN-Dj-KvN" id="C6H-UZ-b5t">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Choose a color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="haV-MQ-XWl">
+                                                    <rect key="frame" x="20" y="0.0" width="315" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="2V7-qT-hEd" id="x0x-HU-j6f"/>
+                            <outlet property="delegate" destination="2V7-qT-hEd" id="UB7-23-mcV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Category" id="IU9-GA-bEH">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="22W-6F-Adr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="qgw-fG-NSt"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="thb-1P-Vsm" kind="show" identifier="choose_icon" id="EUV-LM-9W0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJS-Ar-9h4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6079.7101449275369" y="853.79464285714278"/>
         </scene>
         <!--Icons-->
         <scene sceneID="PpD-mn-7RH">
@@ -657,13 +746,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="always" id="vN9-jc-fsc">
                         <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="noO-Zq-Dys">
-                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <action selector="onBackClicked:" destination="dqd-af-3ME" id="NDQ-qS-tAk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VOX-Kl-mhp">
-                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -684,7 +773,7 @@
                         <color key="tintColor" systemColor="systemRedColor"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="KFu-4F-wCO" kind="relationship" relationship="rootViewController" id="8NS-1O-TXw"/>
+                        <segue destination="2V7-qT-hEd" kind="relationship" relationship="rootViewController" id="tWL-Zq-DjV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hd8-8g-tHm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -704,13 +793,13 @@
                                 <items>
                                     <navigationItem title="Unlock Vault" id="VNv-fZ-uQ9">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="whA-Gn-CUx">
-                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <color key="tintColor" systemColor="systemBlueColor"/>
                                             <connections>
                                                 <action selector="onCancelClicked:" destination="8FD-y0-ZX5" id="UCR-85-9lN"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Unlock" id="DxS-B5-7pl">
-                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <color key="tintColor" systemColor="systemBlueColor"/>
                                             <connections>
                                                 <action selector="onUnlockingVault:" destination="8FD-y0-ZX5" id="5WO-bZ-e3R"/>
                                             </connections>
@@ -782,7 +871,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemRedColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemBlueColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="ZNF-Lg-LWC" kind="relationship" relationship="viewControllers" id="69n-jU-kX9"/>
@@ -942,6 +1031,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
