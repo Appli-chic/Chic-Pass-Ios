@@ -41,6 +41,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "NewCategoryController.tableView(_:didSelectRowAt:):NewCategoryController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.section">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "VaultsController.loadVaults():VaultsController.swift">
          <PersistentStrings>
             <PersistentString

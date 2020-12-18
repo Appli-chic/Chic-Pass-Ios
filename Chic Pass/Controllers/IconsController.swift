@@ -28,7 +28,7 @@ class IconsController: UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return icons.count
+        icons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,7 +39,7 @@ class IconsController: UIViewController, UICollectionViewDataSource, UICollectio
         cell.icon.image = UIImage(systemName: icons[indexPath.row])
         
         if selectedIcon == indexPath.row {
-            cell.icon.tintColor = UIColor.red
+            cell.icon.tintColor = UIColor.systemBlue
             cell.view.backgroundColor = UIColor.secondarySystemBackground
         } else {
             cell.icon.tintColor = UIColor.label

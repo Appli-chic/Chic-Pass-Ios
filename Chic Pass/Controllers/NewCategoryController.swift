@@ -15,25 +15,22 @@ extension Notification.Name {
     }
 }
 
-class NewCategoryController: UIViewController, UIColorPickerViewControllerDelegate {
+class NewCategoryController: UITableViewController, UIColorPickerViewControllerDelegate,
+        UICollectionViewDataSource, UICollectionViewDelegate {
+
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var colorButton: UIButton!
-    @IBOutlet weak var iconView: UIView!
-    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var colorCollection: UICollectionView!
     
     private var color: UIColor = UIColor.red
     private var iconName = "house.fill"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        nameTextField.setLeftPaddingPoints(16)
-        nameTextField.setRightPaddingPoints(16)
         
-        let iconTap = UITapGestureRecognizer(target: self, action: #selector(self.onIconTapped(_:)))
-        iconView.addGestureRecognizer(iconTap)
+        colorCollection.dataSource = self
+        colorCollection.delegate = self
         
         NotificationCenter.default.addObserver(
             self,
@@ -96,25 +93,43 @@ class NewCategoryController: UIViewController, UIColorPickerViewControllerDelega
         dismiss(animated: true)
     }
     
-    @IBAction func onSelectingColor(_ sender: Any) {
-        let picker = UIColorPickerViewController()
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Choosing an icon
+        if indexPath.section == 1 && indexPath.row == 0 {
+            performSegue(withIdentifier: "choose_icon", sender: nil)
+        }
+        
+        // Choosing a color had been clicked
+        if indexPath.section == 1 && indexPath.row == 1 {
+            let picker = UIColorPickerViewController()
+            picker.delegate = self
+            present(picker, animated: true, completion: nil)
+        }
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        colors.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as! ColorCollectionViewCell
+
+        colorCell.colorView.backgroundColor = colors[indexPath.row]
+
+        return colorCell
     }
     
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         color = viewController.selectedColor
-        colorButton.backgroundColor = color
-        iconView.backgroundColor = color
-    }
-    
-    @objc func onIconTapped(_ sender: UITapGestureRecognizer? = nil) {
-        self.performSegue(withIdentifier: "choose_icon", sender: nil)
+//        colorButton.backgroundColor = color
+//        iconView.backgroundColor = color
     }
     
     @objc private func onIconChanged(_ notification: Notification) {
         iconName = notification.object as! String
-        iconImage.image = UIImage(systemName: iconName)
+//        iconImage.image = UIImage(systemName: iconName)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
