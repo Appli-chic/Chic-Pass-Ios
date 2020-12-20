@@ -5,5 +5,6 @@
 import UIKit
 
 class ColorCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var colorOutlineView: UIView!
     @IBOutlet weak var colorView: UIView!
 }

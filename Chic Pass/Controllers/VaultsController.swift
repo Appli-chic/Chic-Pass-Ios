@@ -88,7 +88,7 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            let deletedAlert = UIAlertController(title: "Warning",
+            let deletedAlert = UIAlertController(title: "",
                     message: "All the passwords contained in this vault will be deleted too",
                     preferredStyle: UIAlertController.Style.actionSheet)
 

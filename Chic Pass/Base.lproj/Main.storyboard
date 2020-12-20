@@ -413,7 +413,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="120" id="SGN-Dj-KvN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="120" id="SGN-Dj-KvN">
                                         <rect key="frame" x="20" y="161" width="374" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SGN-Dj-KvN" id="C6H-UZ-b5t">
@@ -439,14 +439,29 @@
                                                                 <subviews>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4t-fg-nfo">
                                                                         <rect key="frame" x="5" y="5" width="20" height="20"/>
-                                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                                        <subviews>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tD-Rj-Mhv">
+                                                                                <rect key="frame" x="4" y="4" width="12" height="12"/>
+                                                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                        <real key="value" value="13.5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="30" id="5E2-h0-UOf"/>
-                                                                            <constraint firstAttribute="width" constant="30" id="bVl-Px-Y4F"/>
+                                                                            <constraint firstAttribute="height" constant="35" id="5E2-h0-UOf"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="6tD-Rj-Mhv" secondAttribute="trailing" constant="4" id="Th8-j1-KR2"/>
+                                                                            <constraint firstItem="6tD-Rj-Mhv" firstAttribute="top" secondItem="d4t-fg-nfo" secondAttribute="top" constant="4" id="XK4-ac-KFh"/>
+                                                                            <constraint firstAttribute="width" constant="35" id="bVl-Px-Y4F"/>
+                                                                            <constraint firstItem="6tD-Rj-Mhv" firstAttribute="leading" secondItem="d4t-fg-nfo" secondAttribute="leading" constant="4" id="c5n-cS-01K"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="6tD-Rj-Mhv" secondAttribute="bottom" constant="4" id="tpU-Ju-uBy"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                <integer key="value" value="15"/>
+                                                                                <real key="value" value="17.5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
@@ -462,7 +477,8 @@
                                                             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                             <size key="customSize" width="30" height="30"/>
                                                             <connections>
-                                                                <outlet property="colorView" destination="d4t-fg-nfo" id="bUS-tL-bGA"/>
+                                                                <outlet property="colorOutlineView" destination="d4t-fg-nfo" id="e8S-EC-peT"/>
+                                                                <outlet property="colorView" destination="6tD-Rj-Mhv" id="cp8-rx-qNx"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>

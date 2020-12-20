@@ -84,7 +84,7 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
             addButton.isEnabled = true
             let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
     }
     

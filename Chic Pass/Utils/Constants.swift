@@ -15,4 +15,6 @@ let colors = [
     UIColor.systemPurple,
     UIColor.systemTeal,
     UIColor.systemYellow,
+    UIColor.black,
+    UIColor.magenta
 ]
