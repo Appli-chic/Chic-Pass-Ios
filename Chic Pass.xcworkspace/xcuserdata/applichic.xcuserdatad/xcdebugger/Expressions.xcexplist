@@ -3,26 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "CategoriesController.loadCategories():CategoriesController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "SelectedVault.data.vault.id">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in UnlockVaultController.onUnlockingVault(_:):UnlockVaultController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.vault!.signature!">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "VaultsController.tableView(_:didSelectRowAt:):VaultsController.swift">
          <PersistentStrings>
             <PersistentString
                value = "SelectedVault.data.vault.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewCategoryController.onIconChanged(_:):NewCategoryController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "iconsPreview.firstIndex(of: iconName) != nil">
+            </PersistentString>
+            <PersistentString
+               value = "iconsPreview[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -52,10 +47,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CategoriesController.loadCategories():CategoriesController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "SelectedVault.data.vault.id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "VaultsController.loadVaults():VaultsController.swift">
          <PersistentStrings>
             <PersistentString
                value = "vaults[0].id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UnlockVaultController.onUnlockingVault(_:):UnlockVaultController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.vault!.signature!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

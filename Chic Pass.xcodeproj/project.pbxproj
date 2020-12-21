@@ -15,6 +15,7 @@
 		5F1222C725756B700007AE44 /* MetricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222C625756B700007AE44 /* MetricsController.swift */; };
 		5F1222CC25756CC80007AE44 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222CB25756CC80007AE44 /* SettingsController.swift */; };
 		5F1222D2257578010007AE44 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222D1257578010007AE44 /* UITextField.swift */; };
+		5F1905F125910715001C32AB /* NewCategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1905F025910715001C32AB /* NewCategoryIconCollectionViewCell.swift */; };
 		5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */; };
 		5F4C7E012580024B0031A2F4 /* NewCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E002580024B0031A2F4 /* NewCategoryController.swift */; };
 		5F4C7E0625803D910031A2F4 /* IconsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E0525803D910031A2F4 /* IconsController.swift */; };
@@ -66,6 +67,7 @@
 		5F1222C625756B700007AE44 /* MetricsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsController.swift; sourceTree = "<group>"; };
 		5F1222CB25756CC80007AE44 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		5F1222D1257578010007AE44 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		5F1905F025910715001C32AB /* NewCategoryIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryIconCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5F4C7E002580024B0031A2F4 /* NewCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryController.swift; sourceTree = "<group>"; };
 		5F4C7E0525803D910031A2F4 /* IconsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				5F4C7E0A25803FA20031A2F4 /* IconCollectionViewCell.swift */,
 				5F78F18A25816F9600D65DD2 /* CategoryTableViewCell.swift */,
 				836D3C2214730775A5FAA499 /* ColorCollectionViewCell.swift */,
+				5F1905F025910715001C32AB /* NewCategoryIconCollectionViewCell.swift */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				5FBD8175258203C00010F9CB /* Data.swift in Sources */,
 				5F01F1F3257D23DB003CDAE2 /* UnlockVaultController.swift in Sources */,
 				5F1222D2257578010007AE44 /* UITextField.swift in Sources */,
+				5F1905F125910715001C32AB /* NewCategoryIconCollectionViewCell.swift in Sources */,
 				5F1222BD25756B170007AE44 /* PasswordsController.swift in Sources */,
 				5FCBAE66257409F700748D85 /* SceneDelegate.swift in Sources */,
 				5F78F18625816BD400D65DD2 /* Color.swift in Sources */,

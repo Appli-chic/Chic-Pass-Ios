@@ -22,15 +22,20 @@ class NewCategoryController: UITableViewController, UIColorPickerViewControllerD
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var colorCollection: UICollectionView!
-
+    @IBOutlet weak var iconCollection: UICollectionView!
+    
     private var color: UIColor = UIColor.systemBlue
     private var iconName = "house.fill"
+    private var iconsPreview = icons[0...10]
+    private var colorsPreview = colors
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         colorCollection.dataSource = self
         colorCollection.delegate = self
+        iconCollection.dataSource = self
+        iconCollection.delegate = self
 
         NotificationCenter.default.addObserver(
                 self,
@@ -52,7 +57,7 @@ class NewCategoryController: UITableViewController, UIColorPickerViewControllerD
         let loadingAlert = JGProgressHUD()
         loadingAlert.textLabel.text = "Loading"
         loadingAlert.hudView.backgroundColor = UIColor.secondarySystemBackground
-        loadingAlert.show(in: self.view)
+        loadingAlert.show(in: view)
 
         // Prepare to add the category to the local database
         let context = appDelegate.persistentContainer.viewContext
@@ -110,43 +115,85 @@ class NewCategoryController: UITableViewController, UIColorPickerViewControllerD
 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        colors.count
+        if collectionView == colorCollection {
+            return colorsPreview.count
+        } else {
+            return iconsPreview.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as! ColorCollectionViewCell
+        
+        if collectionView == colorCollection {
+            // Managing colors collection
+            let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "colorCell", for: indexPath) as! ColorCollectionViewCell
 
-        if color == colors[indexPath.row] {
-            colorCell.colorOutlineView.layer.borderWidth = 2
-            colorCell.colorOutlineView.layer.borderColor = colors[indexPath.row].cgColor
+            if color == colorsPreview[indexPath.row] {
+                colorCell.colorOutlineView.layer.borderWidth = 2
+                colorCell.colorOutlineView.layer.borderColor = colorsPreview[indexPath.row].cgColor
+            } else {
+                colorCell.colorOutlineView.layer.borderColor = UIColor.clear.cgColor
+            }
+
+            colorCell.colorView.backgroundColor = colorsPreview[indexPath.row]
+
+            return colorCell
         } else {
-            colorCell.colorOutlineView.layer.borderColor = UIColor.clear.cgColor
+            // Managing icons collection
+            let iconCell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! NewCategoryIconCollectionViewCell
+
+            iconCell.iconView.image = UIImage(systemName: iconsPreview[indexPath.row])
+
+            if iconName == iconsPreview[indexPath.row] {
+                iconCell.colorView.backgroundColor = color
+                iconCell.iconView.tintColor = UIColor.white
+            } else {
+                iconCell.colorView.backgroundColor = UIColor.secondarySystemBackground
+                iconCell.iconView.tintColor = UIColor.label
+            }
+
+            return iconCell
         }
-
-        colorCell.colorView.backgroundColor = colors[indexPath.row]
-
-        return colorCell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        color = colors[indexPath.row]
+        if collectionView == colorCollection {
+            color = colorsPreview[indexPath.row]
+        } else {
+            iconName = iconsPreview[indexPath.row]
+        }
+        
         colorCollection.reloadData()
+        iconCollection.reloadData()
     }
 
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         color = viewController.selectedColor
+
+        if colorsPreview.firstIndex(of: color) == nil {
+            colorsPreview[0] = color
+        }
+
         colorCollection.reloadData()
+        iconCollection.reloadData()
     }
 
     @objc private func onIconChanged(_ notification: Notification) {
         iconName = notification.object as! String
-//        iconImage.image = UIImage(systemName: iconName)
+        
+        if iconsPreview.firstIndex(of: iconName) == nil {
+            iconsPreview[0] = iconName
+        }
+        
+        colorCollection.reloadData()
+        iconCollection.reloadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "choose_icon" {
             let iconsController = segue.destination as! IconsController
-            iconsController.selectedIcon = iconsController.icons.lastIndex(of: iconName)!
+            iconsController.selectedIcon = icons.firstIndex(of: iconName)!
+            iconsController.iconColor = color
         }
     }
 }
