@@ -38,7 +38,7 @@ class CategoriesController: UIViewController, UITableViewDataSource, UITableView
         searchController.obscuresBackgroundDuringPresentation = false;
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.red
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.systemBlue
     }
     
     override func viewWillAppear(_ animated: Bool) {

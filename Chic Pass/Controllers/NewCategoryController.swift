@@ -148,7 +148,7 @@ class NewCategoryController: UITableViewController, UIColorPickerViewControllerD
                 iconCell.colorView.backgroundColor = color
                 iconCell.iconView.tintColor = UIColor.white
             } else {
-                iconCell.colorView.backgroundColor = UIColor.secondarySystemBackground
+                iconCell.colorView.backgroundColor = UIColor.secondarySystemGroupedBackground
                 iconCell.iconView.tintColor = UIColor.label
             }
 

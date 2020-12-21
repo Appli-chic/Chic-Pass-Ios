@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PasswordsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EntryController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
@@ -24,7 +24,7 @@ class PasswordsController: UIViewController, UITableViewDataSource, UITableViewD
         searchController.obscuresBackgroundDuringPresentation = false;
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.red
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.systemBlue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
