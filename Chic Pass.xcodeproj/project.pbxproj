@@ -18,6 +18,7 @@
 		5F1905F125910715001C32AB /* NewCategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1905F025910715001C32AB /* NewCategoryIconCollectionViewCell.swift */; };
 		5F1905F925912358001C32AB /* NewEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1905F825912358001C32AB /* NewEntryTableViewController.swift */; };
 		5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */; };
+		5F3F9756259287A1001FB4A7 /* SelectCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F9755259287A1001FB4A7 /* SelectCategoryController.swift */; };
 		5F4C7E012580024B0031A2F4 /* NewCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E002580024B0031A2F4 /* NewCategoryController.swift */; };
 		5F4C7E0625803D910031A2F4 /* IconsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E0525803D910031A2F4 /* IconsController.swift */; };
 		5F4C7E0B25803FA20031A2F4 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E0A25803FA20031A2F4 /* IconCollectionViewCell.swift */; };
@@ -39,7 +40,9 @@
 		5FEF5E1525744A41003E7146 /* NewVaultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEF5E1425744A41003E7146 /* NewVaultController.swift */; };
 		836D32E82F4602EE185462F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3C523B0A7C51E6EF3055 /* Constants.swift */; };
 		836D34BB657CF811C0C737E0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D31F30CF5FEE9C55F723A /* String.swift */; };
+		836D3C155B32BAE255E947A5 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D32D32BB0BA015CCA9CD8 /* CategoryService.swift */; };
 		836D3CDD38549E596E514215 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3E351253CE369C60A029 /* PaddingLabel.swift */; };
+		836D3DAB8DDDB10ECAF8624C /* EntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3FD7880F4A4624A14D15 /* EntryService.swift */; };
 		836D3E68C50D6E9FA78A3C38 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3C2214730775A5FAA499 /* ColorCollectionViewCell.swift */; };
 		E5F2B10D4B3FB131C3CC3D8A /* Pods_Chic_Pass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81C956A6FE3CF7EE358278C /* Pods_Chic_Pass.framework */; };
 		EF3232DE613696103ED2D4E2 /* Pods_Chic_PassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9360992C2F7F7E1B892108C3 /* Pods_Chic_PassTests.framework */; };
@@ -74,6 +77,7 @@
 		5F1905F025910715001C32AB /* NewCategoryIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryIconCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F1905F825912358001C32AB /* NewEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryTableViewController.swift; sourceTree = "<group>"; };
 		5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5F3F9755259287A1001FB4A7 /* SelectCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryController.swift; sourceTree = "<group>"; };
 		5F4C7E002580024B0031A2F4 /* NewCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryController.swift; sourceTree = "<group>"; };
 		5F4C7E0525803D910031A2F4 /* IconsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsController.swift; sourceTree = "<group>"; };
 		5F4C7E0A25803FA20031A2F4 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -101,9 +105,11 @@
 		5FEF5E1425744A41003E7146 /* NewVaultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVaultController.swift; sourceTree = "<group>"; };
 		621D2634BD9179408B813956 /* Pods-Chic Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass.debug.xcconfig"; path = "Target Support Files/Pods-Chic Pass/Pods-Chic Pass.debug.xcconfig"; sourceTree = "<group>"; };
 		836D31F30CF5FEE9C55F723A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		836D32D32BB0BA015CCA9CD8 /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		836D3C2214730775A5FAA499 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		836D3C523B0A7C51E6EF3055 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		836D3E351253CE369C60A029 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		836D3FD7880F4A4624A14D15 /* EntryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryService.swift; sourceTree = "<group>"; };
 		83AB08558693B56B321B1DF4 /* Pods-Chic Pass-Chic PassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass-Chic PassUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chic Pass-Chic PassUITests/Pods-Chic Pass-Chic PassUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		90C353C8275FDDE3F730F0B8 /* Pods-Chic Pass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass.release.xcconfig"; path = "Target Support Files/Pods-Chic Pass/Pods-Chic Pass.release.xcconfig"; sourceTree = "<group>"; };
 		9360992C2F7F7E1B892108C3 /* Pods_Chic_PassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chic_PassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +217,7 @@
 				5FCBAE71257409FB00748D85 /* LaunchScreen.storyboard */,
 				5FCBAE74257409FB00748D85 /* Info.plist */,
 				5FCBAE6C257409F700748D85 /* Chic_Pass.xcdatamodeld */,
+				836D37BA79E835346BD2275A /* Services */,
 			);
 			path = "Chic Pass";
 			sourceTree = "<group>";
@@ -261,6 +268,7 @@
 				5F4C7E0525803D910031A2F4 /* IconsController.swift */,
 				5F1905F825912358001C32AB /* NewEntryTableViewController.swift */,
 				5FAE15D12591E72400F503BB /* GeneratePasswordController.swift */,
+				5F3F9755259287A1001FB4A7 /* SelectCategoryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,6 +281,15 @@
 				9360992C2F7F7E1B892108C3 /* Pods_Chic_PassTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		836D37BA79E835346BD2275A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				836D32D32BB0BA015CCA9CD8 /* CategoryService.swift */,
+				836D3FD7880F4A4624A14D15 /* EntryService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,6 +558,9 @@
 				836D32E82F4602EE185462F2 /* Constants.swift in Sources */,
 				836D3CDD38549E596E514215 /* PaddingLabel.swift in Sources */,
 				836D34BB657CF811C0C737E0 /* String.swift in Sources */,
+				5F3F9756259287A1001FB4A7 /* SelectCategoryController.swift in Sources */,
+				836D3C155B32BAE255E947A5 /* CategoryService.swift in Sources */,
+				836D3DAB8DDDB10ECAF8624C /* EntryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

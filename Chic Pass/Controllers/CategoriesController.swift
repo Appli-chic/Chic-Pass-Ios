@@ -47,24 +47,7 @@ class CategoriesController: UIViewController, UITableViewDataSource, UITableView
     }
     
     private func loadCategories() {
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
-        let predicate = NSPredicate(format: "vault.id == %@", SelectedVault.data.vault.id!.uuidString)
-        fetchRequest.predicate = predicate
-        
-        do {
-            categories = try managedContext.fetch(fetchRequest)
-        } catch {
-            let nsError = error as NSError
-            let defaultLog = Logger()
-            defaultLog.error("Error while fetching categories: \(nsError)")
-        }
-        
+        categories = CategoryService.getAllCategoriesFromVault(vault: SelectedVault.data.vault)
         tableView.reloadData()
     }
     

@@ -7,34 +7,61 @@
 
 import UIKit
 
+extension Notification.Name {
+    static var newEntry: Notification.Name {
+        .init(rawValue: "newEntry")
+    }
+}
+
 class EntryController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private var passwords = ["Passwords", "Password", "Password", "Password", "Password", "Password", "Password",
-                             "Password", "Password", "Password", "Password", "Password", "Password", "Password",
-                             "Password", "Password", "Password", "test", "Password", "Password", "Password", "Password",
-                             "Password", "Password", "Password", "Password", "Password", "Password", "Password",
-                             "Password", "Password", "Password"]
+    private var entries: [Entry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(onNewEntryCreated),
+                name: .newEntry,
+                object: nil
+        )
         
         tableView.dataSource = self
         searchController.obscuresBackgroundDuringPresentation = false;
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.systemBlue
+
+        loadEntries()
+    }
+
+    private func loadEntries() {
+        entries = EntryService.getAllEntriesFromVault(vault: SelectedVault.data.vault)
+        tableView.reloadData()
+    }
+
+    @objc private func onNewEntryCreated(_ notification: Notification) {
+        loadEntries()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "passwordRow", for: indexPath) as! PasswordTableViewCell
+
+        let entry = entries[indexPath.row]
+
+        cell.title?.text = entry.name
+        cell.email?.text = entry.login
+        cell.iconBackground.backgroundColor = UIColor.init(hex: entry.category!.color!)
+        cell.icon.image = UIImage(systemName: entry.category!.icon!)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return passwords.count
+        entries.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -54,7 +81,7 @@ class EntryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     private func deletePassword(indexPath: IndexPath) {
-        passwords.remove(at: indexPath.row)
+        entries.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
     }
     

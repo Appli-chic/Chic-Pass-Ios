@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in UnlockVaultController.onUnlockingVault(_:):UnlockVaultController.swift">
+         contextName = "VaultsController.tableView(_:didSelectRowAt:):VaultsController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.vault!.signature!">
+               value = "SelectedVault.data.vault.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -32,6 +32,14 @@
             </PersistentString>
             <PersistentString
                value = "iconsPreview[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewEntryTableViewController.tableView(_:didSelectRowAt:):NewEntryTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -71,10 +79,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "VaultsController.tableView(_:didSelectRowAt:):VaultsController.swift">
+         contextName = "closure #1 in UnlockVaultController.onUnlockingVault(_:):UnlockVaultController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "SelectedVault.data.vault.name">
+               value = "self.vault!.signature!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

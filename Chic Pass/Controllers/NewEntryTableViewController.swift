@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import JGProgressHUD
+import os
 
 extension Notification.Name {
     static var passwordGenerated: Notification.Name {
         .init(rawValue: "passwordGenerated")
+    }
+
+    static var categorySelected: Notification.Name {
+        .init(rawValue: "categorySelected")
     }
 }
 
@@ -18,7 +24,9 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var categorySelectedLabel: UILabel!
 
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var isPasswordHidden = true
     private var passwordIcon = UIImageView()
     private var category: Category? = nil
@@ -33,8 +41,16 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
                 object: nil
         )
 
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(onCategorySelected),
+                name: .categorySelected,
+                object: nil
+        )
+
         // Keyboard dismissible with a click
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
 
         saveButton.isEnabled = false
@@ -66,6 +82,13 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
     @objc private func onPasswordGenerated(_ notification: Notification) {
         let password = notification.object as! String
         passwordTextField.text = password
+        checkAllFieldsAreFilled()
+    }
+
+    @objc private func onCategorySelected(_ notification: Notification) {
+        category = notification.object as? Category
+        categorySelectedLabel.text = category?.name
+        checkAllFieldsAreFilled()
     }
 
     @objc func onPasswordIconTapped(_ sender: UITapGestureRecognizer? = nil) {
@@ -81,6 +104,10 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
     }
 
     @objc func onTextFieldsChange(_ textField: UITextField) {
+        checkAllFieldsAreFilled()
+    }
+
+    private func checkAllFieldsAreFilled() {
         if nameTextField.hasText && emailTextField.hasText && passwordTextField.hasText && category != nil {
             saveButton.isEnabled = true
         } else {
@@ -102,10 +129,61 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
-    @IBAction func onGeneratingPassword(_ sender: Any) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            performSegue(withIdentifier: "search_categories", sender: category)
+        }
     }
 
     @IBAction func onAddingEntry(_ sender: Any) {
+        saveButton.isEnabled = false
+
+        // Hide Keyboard
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
+
+        // Showing a loading alert
+        let loadingAlert = JGProgressHUD()
+        loadingAlert.textLabel.text = "Loading"
+        loadingAlert.hudView.backgroundColor = UIColor.secondarySystemBackground
+        loadingAlert.show(in: view)
+
+        // Prepare to add the vault to the local database
+        let context = appDelegate.persistentContainer.viewContext
+        let name = nameTextField.text
+        let password = passwordTextField.text
+        let login = emailTextField.text
+
+        DispatchQueue.global().async {
+            do {
+                let entry = Entry(context: context)
+                let uuid = UUID()
+                entry.id = uuid
+                entry.name = name
+                entry.password = password
+                entry.login = login
+                entry.category = self.category
+                entry.vault = SelectedVault.data.vault
+                entry.createdAt = Date()
+                entry.updatedAt = Date()
+
+                try context.save()
+
+                DispatchQueue.main.async {
+                    loadingAlert.dismiss()
+                    NotificationCenter.default.post(name: .newEntry, object: nil)
+                    self.dismiss(animated: false)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    let nsError = error as NSError
+                    let defaultLog = Logger()
+                    defaultLog.error("Error creating an entry: \(nsError)")
+
+                    loadingAlert.dismiss()
+                    self.saveButton.isEnabled = true
+                }
+            }
+        }
     }
 
     @IBAction func onCancel(_ sender: Any) {
@@ -122,5 +200,12 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
         }
 
         return true
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "search_categories" && sender is Category? {
+            let selectCategoryController = segue.destination as! SelectCategoryController
+            selectCategoryController.category = sender as? Category
+        }
     }
 }
