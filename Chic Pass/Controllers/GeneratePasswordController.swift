@@ -20,23 +20,28 @@ let uppercase = [
 let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 let specialCharacters = [
-    "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "[", "}", "]", "|", "\\", ":",
-    ";", "\"", "'", ",", "<", ".", ">", "/", "?", "`", "~"
+    "!", "@", "#", "%", "&", "*", ","
 ];
 
 class GeneratePasswordController: UITableViewController {
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextView: UITextView!
+    @IBOutlet weak var passwordStrength: PaddingLabel!
     @IBOutlet weak var charactersSlider: UISlider!
     @IBOutlet weak var uppercaseSwitch: UISwitch!
     @IBOutlet weak var digitsSwitch: UISwitch!
     @IBOutlet weak var symbolsSwitch: UISwitch!
+    @IBOutlet weak var charactersLabel: UILabel!
+
+    var previousNumberCharacters: Int = 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        charactersSlider.value = Float(previousNumberCharacters)
         generatePassword()
 
         // Listeners
-        charactersSlider.addTarget(self, action: #selector(optionsChanged), for: UIControl.Event.valueChanged)
+        charactersSlider.addTarget(self, action: #selector(onNbCharactersChanged), for: UIControl.Event.valueChanged)
         uppercaseSwitch.addTarget(self, action: #selector(optionsChanged), for: UIControl.Event.valueChanged)
         digitsSwitch.addTarget(self, action: #selector(optionsChanged), for: UIControl.Event.valueChanged)
         symbolsSwitch.addTarget(self, action: #selector(optionsChanged), for: UIControl.Event.valueChanged)
@@ -45,13 +50,12 @@ class GeneratePasswordController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
 
-        if section == 0 || section == 1 {
+        if section == 0 || section == 1 || section == 3 {
             return 1
         } else if section == 2 {
             return 3
@@ -60,8 +64,20 @@ class GeneratePasswordController: UITableViewController {
         return 0
     }
 
+    @objc func onNbCharactersChanged() {
+        if previousNumberCharacters != Int(charactersSlider.value) {
+            previousNumberCharacters = Int(charactersSlider.value)
+            charactersLabel.text = String(describing: Int(charactersSlider.value))
+            generatePassword()
+        }
+    }
+
     @objc func optionsChanged() {
-        tableView.footerView(forSection: 1)?.textLabel?.text = String(describing: charactersSlider.value)
+        charactersLabel.text = String(describing: Int(charactersSlider.value))
+        generatePassword()
+    }
+
+    @IBAction func onRegenerate(_ sender: Any) {
         generatePassword()
     }
 
@@ -88,11 +104,33 @@ class GeneratePasswordController: UITableViewController {
         }
 
         // Show the password
-        passwordTextField.text = password
+        passwordTextView.text = password
+        setPasswordStrength()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .none)
+    }
+
+    private func setPasswordStrength() {
+        if previousNumberCharacters <= 6 {
+            passwordStrength.text = "Weak"
+            passwordStrength.backgroundColor = UIColor.systemRed
+        } else if previousNumberCharacters <= 10 {
+            passwordStrength.text = "Medium"
+            passwordStrength.backgroundColor = UIColor.systemOrange
+        } else if previousNumberCharacters <= 13 {
+            passwordStrength.text = "Good"
+            passwordStrength.backgroundColor = UIColor.systemGreen
+        } else {
+            passwordStrength.text = "Very Good"
+            passwordStrength.backgroundColor = UIColor.systemGreen
+        }
     }
 
     private func getCharacterFromDictionary(dictionary: [String]) -> String {
         let index = Int.random(in: 0..<dictionary.count)
         return dictionary[index]
+    }
+    
+    @IBAction func onValidated(_ sender: Any) {
+        dismiss(animated: true)
     }
 }
