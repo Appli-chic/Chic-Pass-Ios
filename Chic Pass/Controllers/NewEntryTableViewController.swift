@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension Notification.Name {
+    static var passwordGenerated: Notification.Name {
+        .init(rawValue: "passwordGenerated")
+    }
+}
+
 class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -19,6 +25,13 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(onPasswordGenerated),
+                name: .passwordGenerated,
+                object: nil
+        )
 
         // Keyboard dismissible with a click
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
@@ -48,6 +61,11 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
 
         passwordTextField.rightView = passwordIconView
         passwordTextField.rightViewMode = .always
+    }
+
+    @objc private func onPasswordGenerated(_ notification: Notification) {
+        let password = notification.object as! String
+        passwordTextField.text = password
     }
 
     @objc func onPasswordIconTapped(_ sender: UITapGestureRecognizer? = nil) {

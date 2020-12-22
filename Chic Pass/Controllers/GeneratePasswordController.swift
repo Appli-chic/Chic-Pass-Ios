@@ -105,6 +105,7 @@ class GeneratePasswordController: UITableViewController {
 
         // Show the password
         passwordTextView.text = password
+        NotificationCenter.default.post(name: .passwordGenerated, object: passwordTextView.text)
         setPasswordStrength()
         tableView.reloadSections(IndexSet(integersIn: 0...0), with: .none)
     }
@@ -131,6 +132,6 @@ class GeneratePasswordController: UITableViewController {
     }
     
     @IBAction func onValidated(_ sender: Any) {
-        dismiss(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
