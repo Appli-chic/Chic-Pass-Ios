@@ -27,7 +27,7 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Keyboard dismissable with a click
+        // Keyboard dismissible with a click
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
@@ -53,13 +53,13 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
         
         // Add the password an eye icon
         let passwordIconView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        passwordIcon = UIImageView(frame:CGRect(x: 50, y: 13, width: 24, height: 24))
+        passwordIcon = UIImageView(frame:CGRect(x: 60, y: 13, width: 24, height: 24))
         passwordIcon.image = UIImage(systemName: "eye.fill")
         passwordIcon.contentMode = .scaleAspectFit
-        passwordIcon.tintColor = UIColor.label
+        passwordIcon.tintColor = UIColor.systemBlue
         passwordIconView.addSubview(passwordIcon)
         
-        let passwordIconTap = UITapGestureRecognizer(target: self, action: #selector(self.onPasswordIconTapped(_:)))
+        let passwordIconTap = UITapGestureRecognizer(target: self, action: #selector(onPasswordIconTapped(_:)))
         passwordIconView.addGestureRecognizer(passwordIconTap)
         
         passwordTextField.rightView = passwordIconView
@@ -96,7 +96,7 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
         let loadingAlert = JGProgressHUD()
         loadingAlert.textLabel.text = "Loading"
         loadingAlert.hudView.backgroundColor = UIColor.secondarySystemBackground
-        loadingAlert.show(in: self.view)
+        loadingAlert.show(in: view)
         
         // Prepare to add the vault to the local database
         let context = appDelegate.persistentContainer.viewContext
@@ -112,6 +112,8 @@ class NewVaultController: UIViewController, UITextFieldDelegate {
                 vault.id = uuid
                 vault.name = vaultName
                 vault.signature = signature
+                vault.categories = []
+                vault.entries = []
                 vault.createdAt = Date()
                 vault.updatedAt = Date()
 

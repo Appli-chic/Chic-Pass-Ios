@@ -3,21 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "VaultsController.tableView(_:didSelectRowAt:):VaultsController.swift">
+         contextName = "closure #1 in UnlockVaultController.onUnlockingVault(_:):UnlockVaultController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "SelectedVault.data.vault.name">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "NewCategoryController.onIconChanged(_:):NewCategoryController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "iconsPreview.firstIndex(of: iconName) != nil">
-            </PersistentString>
-            <PersistentString
-               value = "iconsPreview[0]">
+               value = "self.vault!.signature!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -36,21 +25,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewCategoryController.tableView(_:didSelectRowAt:):NewCategoryController.swift">
+         contextName = "NewCategoryController.onIconChanged(_:):NewCategoryController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.row">
+               value = "iconsPreview.firstIndex(of: iconName) != nil">
             </PersistentString>
             <PersistentString
-               value = "indexPath.section">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CategoriesController.loadCategories():CategoriesController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "SelectedVault.data.vault.id">
+               value = "iconsPreview[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -63,10 +44,37 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in UnlockVaultController.onUnlockingVault(_:):UnlockVaultController.swift">
+         contextName = "CategoriesController.loadCategories():CategoriesController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.vault!.signature!">
+               value = "SelectedVault.data.vault.id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewCategoryController.tableView(_:didSelectRowAt:):NewCategoryController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.section">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewEntryTableViewController.textFieldShouldReturn(_:):NewEntryTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textField.superview?.viewWithTag(nextTag)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "VaultsController.tableView(_:didSelectRowAt:):VaultsController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "SelectedVault.data.vault.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

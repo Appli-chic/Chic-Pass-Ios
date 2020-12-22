@@ -74,6 +74,7 @@ class NewCategoryController: UITableViewController, UIColorPickerViewControllerD
                 category.createdAt = Date()
                 category.updatedAt = Date()
                 category.vault = SelectedVault.data.vault
+                category.entries = []
 
                 try context.save()
 
