@@ -38,6 +38,7 @@
 		5FCBAEA6257413F400748D85 /* VaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAEA5257413F400748D85 /* VaultTableViewCell.swift */; };
 		5FEF5E1525744A41003E7146 /* NewVaultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEF5E1425744A41003E7146 /* NewVaultController.swift */; };
 		836D32E82F4602EE185462F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3C523B0A7C51E6EF3055 /* Constants.swift */; };
+		836D34BB657CF811C0C737E0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D31F30CF5FEE9C55F723A /* String.swift */; };
 		836D3CDD38549E596E514215 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3E351253CE369C60A029 /* PaddingLabel.swift */; };
 		836D3E68C50D6E9FA78A3C38 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3C2214730775A5FAA499 /* ColorCollectionViewCell.swift */; };
 		E5F2B10D4B3FB131C3CC3D8A /* Pods_Chic_Pass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81C956A6FE3CF7EE358278C /* Pods_Chic_Pass.framework */; };
@@ -99,6 +100,7 @@
 		5FCBAEA5257413F400748D85 /* VaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultTableViewCell.swift; sourceTree = "<group>"; };
 		5FEF5E1425744A41003E7146 /* NewVaultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVaultController.swift; sourceTree = "<group>"; };
 		621D2634BD9179408B813956 /* Pods-Chic Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass.debug.xcconfig"; path = "Target Support Files/Pods-Chic Pass/Pods-Chic Pass.debug.xcconfig"; sourceTree = "<group>"; };
+		836D31F30CF5FEE9C55F723A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		836D3C2214730775A5FAA499 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		836D3C523B0A7C51E6EF3055 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		836D3E351253CE369C60A029 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				5F94B3D9257BE40D0049940B /* Security.swift */,
 				5FBD8174258203C00010F9CB /* Data.swift */,
 				836D3C523B0A7C51E6EF3055 /* Constants.swift */,
+				836D31F30CF5FEE9C55F723A /* String.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				836D3E68C50D6E9FA78A3C38 /* ColorCollectionViewCell.swift in Sources */,
 				836D32E82F4602EE185462F2 /* Constants.swift in Sources */,
 				836D3CDD38549E596E514215 /* PaddingLabel.swift in Sources */,
+				836D34BB657CF811C0C737E0 /* String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
