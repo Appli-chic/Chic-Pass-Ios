@@ -4,6 +4,9 @@
 
 import UIKit
 
+let biometryKey = "biometryKey"
+let biometryVaultValueKey = "biometryVaultValueKey"
+
 let colors = [
     UIColor.systemBlue,
     UIColor.systemRed,

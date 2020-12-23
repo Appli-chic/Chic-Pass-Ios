@@ -1484,7 +1484,16 @@
                             <outlet property="delegate" destination="E3E-MA-IQn" id="Sd9-pc-viW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="N8q-hF-rhE"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="N8q-hF-rhE">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="A6o-uy-TRn">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
+                            <connections>
+                                <action selector="onBackClicked:" destination="E3E-MA-IQn" id="epD-h4-J6j"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="As0-tn-O4g" kind="show" identifier="biometry" id="WeD-th-4t0"/>
                     </connections>
@@ -1496,7 +1505,7 @@
         <!--Biometry-->
         <scene sceneID="4NY-jM-N5K">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="As0-tn-O4g" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="As0-tn-O4g" customClass="BiometryController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="7Wv-7y-hSD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1518,6 +1527,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mD9-Mn-gue">
                                                     <rect key="frame" x="305" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onBiometryChange:" destination="As0-tn-O4g" eventType="valueChanged" id="U0j-lV-Snr"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -1539,10 +1551,90 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Biometry" largeTitleDisplayMode="never" id="6yw-id-M6T"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="biometrySwitch" destination="mD9-Mn-gue" id="XNn-Bp-QEp"/>
+                        <segue destination="Ky5-cz-1mq" kind="presentation" identifier="check_password_biometry" id="YsT-CC-kJk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIG-Bc-8Bw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4799" y="3039"/>
+            <point key="canvasLocation" x="4932" y="3082"/>
+        </scene>
+        <!--Check Password-->
+        <scene sceneID="N9w-i2-nDj">
+            <objects>
+                <tableViewController id="kTQ-Xg-HuB" customClass="CheckPasswordController" customModule="Chic_Pass" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="6lg-Yi-GPj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <sections>
+                            <tableViewSection headerTitle="Vault's password" id="CuU-ND-Ecj">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43.5" id="BqO-zt-hZx">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BqO-zt-hZx" id="G0L-DU-JXL">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="The password to unlock the vault" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="34e-DN-9l9">
+                                                    <rect key="frame" x="20" y="0.0" width="354" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="34e-DN-9l9" firstAttribute="leading" secondItem="G0L-DU-JXL" secondAttribute="leading" constant="20" symbolic="YES" id="GWg-70-snF"/>
+                                                <constraint firstAttribute="bottom" secondItem="34e-DN-9l9" secondAttribute="bottom" id="IkI-e6-tzT"/>
+                                                <constraint firstAttribute="trailing" secondItem="34e-DN-9l9" secondAttribute="trailing" id="e6p-c0-mTv"/>
+                                                <constraint firstItem="34e-DN-9l9" firstAttribute="top" secondItem="G0L-DU-JXL" secondAttribute="top" id="otK-vq-wtT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="kTQ-Xg-HuB" id="YUR-pz-r2U"/>
+                            <outlet property="delegate" destination="kTQ-Xg-HuB" id="4Ix-5L-GNt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Check Password" largeTitleDisplayMode="never" id="YmD-Io-3Md">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pga-Fr-LMq">
+                            <connections>
+                                <action selector="onCancel:" destination="kTQ-Xg-HuB" id="Rwi-jS-BuC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Check" style="done" id="weA-om-fWd">
+                            <connections>
+                                <action selector="onCheck:" destination="kTQ-Xg-HuB" id="php-Yo-T1X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="checkButton" destination="weA-om-fWd" id="RRc-Fq-POB"/>
+                        <outlet property="passwordTextField" destination="34e-DN-9l9" id="2nm-CI-xTj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjG-g6-Qgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6777" y="3082"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5Zg-jD-qgC">
+            <objects>
+                <navigationController id="Ky5-cz-1mq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pLO-0y-LWK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kTQ-Xg-HuB" kind="relationship" relationship="rootViewController" id="rcV-fq-JoI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnS-dU-wBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5886" y="3082"/>
         </scene>
         <!--Passwords-->
         <scene sceneID="bQq-g8-Jm8">

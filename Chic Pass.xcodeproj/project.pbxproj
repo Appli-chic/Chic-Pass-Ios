@@ -17,6 +17,8 @@
 		5F1222D2257578010007AE44 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1222D1257578010007AE44 /* UITextField.swift */; };
 		5F1905F125910715001C32AB /* NewCategoryIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1905F025910715001C32AB /* NewCategoryIconCollectionViewCell.swift */; };
 		5F1905F925912358001C32AB /* NewEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1905F825912358001C32AB /* NewEntryTableViewController.swift */; };
+		5F326CF82593D5B100E553C6 /* BiometryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F326CF72593D5B100E553C6 /* BiometryController.swift */; };
+		5F326CFD2593FEFF00E553C6 /* CheckPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F326CFC2593FEFF00E553C6 /* CheckPasswordController.swift */; };
 		5F3F270D257AEDF900F4EC4B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */; };
 		5F3F9756259287A1001FB4A7 /* SelectCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F9755259287A1001FB4A7 /* SelectCategoryController.swift */; };
 		5F4C7E012580024B0031A2F4 /* NewCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C7E002580024B0031A2F4 /* NewCategoryController.swift */; };
@@ -78,6 +80,8 @@
 		5F1222D1257578010007AE44 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		5F1905F025910715001C32AB /* NewCategoryIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryIconCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F1905F825912358001C32AB /* NewEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryTableViewController.swift; sourceTree = "<group>"; };
+		5F326CF72593D5B100E553C6 /* BiometryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryController.swift; sourceTree = "<group>"; };
+		5F326CFC2593FEFF00E553C6 /* CheckPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordController.swift; sourceTree = "<group>"; };
 		5F3F270C257AEDF900F4EC4B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5F3F9755259287A1001FB4A7 /* SelectCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryController.swift; sourceTree = "<group>"; };
 		5F4C7E002580024B0031A2F4 /* NewCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryController.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				5F1905F825912358001C32AB /* NewEntryTableViewController.swift */,
 				5FAE15D12591E72400F503BB /* GeneratePasswordController.swift */,
 				5F3F9755259287A1001FB4A7 /* SelectCategoryController.swift */,
+				5F326CF72593D5B100E553C6 /* BiometryController.swift */,
+				5F326CFC2593FEFF00E553C6 /* CheckPasswordController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -550,12 +556,14 @@
 				5F1905F125910715001C32AB /* NewCategoryIconCollectionViewCell.swift in Sources */,
 				5F1905F925912358001C32AB /* NewEntryTableViewController.swift in Sources */,
 				5F1222BD25756B170007AE44 /* EntryController.swift in Sources */,
+				5F326CF82593D5B100E553C6 /* BiometryController.swift in Sources */,
 				5FCBAE66257409F700748D85 /* SceneDelegate.swift in Sources */,
 				5F78F18625816BD400D65DD2 /* Color.swift in Sources */,
 				5F4C7E0625803D910031A2F4 /* IconsController.swift in Sources */,
 				5FEF5E1525744A41003E7146 /* NewVaultController.swift in Sources */,
 				5F1222CC25756CC80007AE44 /* SettingsController.swift in Sources */,
 				5F78F18B25816F9600D65DD2 /* CategoryTableViewCell.swift in Sources */,
+				5F326CFD2593FEFF00E553C6 /* CheckPasswordController.swift in Sources */,
 				5FCBAE6E257409F700748D85 /* Chic_Pass.xcdatamodeld in Sources */,
 				5FCBAEA6257413F400748D85 /* VaultTableViewCell.swift in Sources */,
 				5F1222C225756B4B0007AE44 /* CategoriesController.swift in Sources */,

@@ -30,4 +30,9 @@ class SettingsController: UITableViewController {
             performSegue(withIdentifier: "biometry", sender: nil)
         }
     }
+    
+    @IBAction func onBackClicked(_ sender: Any) {
+        parent?.navigationController?.popViewController(animated: true)
+        parent?.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
