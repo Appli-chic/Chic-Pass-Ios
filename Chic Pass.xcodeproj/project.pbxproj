@@ -39,7 +39,9 @@
 		5FCBAEA6257413F400748D85 /* VaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCBAEA5257413F400748D85 /* VaultTableViewCell.swift */; };
 		5FEF5E1525744A41003E7146 /* NewVaultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEF5E1425744A41003E7146 /* NewVaultController.swift */; };
 		836D32E82F4602EE185462F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3C523B0A7C51E6EF3055 /* Constants.swift */; };
+		836D348E816EC4954E75DEE3 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3AB1F6543D11ED585752 /* UITextView.swift */; };
 		836D34BB657CF811C0C737E0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D31F30CF5FEE9C55F723A /* String.swift */; };
+		836D3BC5C9014545CA2C83D0 /* VaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3DB4DACC398512A769EF /* VaultService.swift */; };
 		836D3C155B32BAE255E947A5 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D32D32BB0BA015CCA9CD8 /* CategoryService.swift */; };
 		836D3CDD38549E596E514215 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3E351253CE369C60A029 /* PaddingLabel.swift */; };
 		836D3DAB8DDDB10ECAF8624C /* EntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D3FD7880F4A4624A14D15 /* EntryService.swift */; };
@@ -106,8 +108,10 @@
 		621D2634BD9179408B813956 /* Pods-Chic Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass.debug.xcconfig"; path = "Target Support Files/Pods-Chic Pass/Pods-Chic Pass.debug.xcconfig"; sourceTree = "<group>"; };
 		836D31F30CF5FEE9C55F723A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		836D32D32BB0BA015CCA9CD8 /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		836D3AB1F6543D11ED585752 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		836D3C2214730775A5FAA499 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		836D3C523B0A7C51E6EF3055 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		836D3DB4DACC398512A769EF /* VaultService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultService.swift; sourceTree = "<group>"; };
 		836D3E351253CE369C60A029 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		836D3FD7880F4A4624A14D15 /* EntryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryService.swift; sourceTree = "<group>"; };
 		83AB08558693B56B321B1DF4 /* Pods-Chic Pass-Chic PassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chic Pass-Chic PassUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chic Pass-Chic PassUITests/Pods-Chic Pass-Chic PassUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				5F1222D1257578010007AE44 /* UITextField.swift */,
 				5F78F18525816BD400D65DD2 /* Color.swift */,
 				836D3E351253CE369C60A029 /* PaddingLabel.swift */,
+				836D3AB1F6543D11ED585752 /* UITextView.swift */,
 			);
 			path = UtilsUI;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			children = (
 				836D32D32BB0BA015CCA9CD8 /* CategoryService.swift */,
 				836D3FD7880F4A4624A14D15 /* EntryService.swift */,
+				836D3DB4DACC398512A769EF /* VaultService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -561,6 +567,8 @@
 				5F3F9756259287A1001FB4A7 /* SelectCategoryController.swift in Sources */,
 				836D3C155B32BAE255E947A5 /* CategoryService.swift in Sources */,
 				836D3DAB8DDDB10ECAF8624C /* EntryService.swift in Sources */,
+				836D348E816EC4954E75DEE3 /* UITextView.swift in Sources */,
+				836D3BC5C9014545CA2C83D0 /* VaultService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

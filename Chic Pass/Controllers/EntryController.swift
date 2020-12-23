@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os
 
 extension Notification.Name {
     static var newEntry: Notification.Name {
@@ -15,7 +16,8 @@ extension Notification.Name {
 
 class EntryController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    
+
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let searchController = UISearchController(searchResultsController: nil)
     private var entries: [Entry] = []
     
@@ -66,12 +68,13 @@ class EntryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            let entry = entries[indexPath.row]
             let deletedAlert = UIAlertController(title: "",
-                    message: "Are you sure to delete Gmail's password",
+                    message: "Are you sure to delete \(entry.name!)'s password",
                     preferredStyle: UIAlertController.Style.actionSheet)
 
             deletedAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
-                self.deletePassword(indexPath: indexPath)
+                self.deleteEntry(indexPath: indexPath)
             }))
 
             deletedAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -80,9 +83,11 @@ class EntryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
-    private func deletePassword(indexPath: IndexPath) {
-        entries.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+    private func deleteEntry(indexPath: IndexPath) {
+        EntryService.deleteEntry(entry: entries[indexPath.row]) {
+            entries.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
     }
     
     @IBAction func onBackClicked(_ sender: Any) {

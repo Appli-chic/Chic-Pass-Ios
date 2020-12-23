@@ -50,22 +50,7 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     private func loadVaults() {
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Vault>(entityName: "Vault")
-        
-        do {
-            vaults = try managedContext.fetch(fetchRequest)
-        } catch {
-            let nsError = error as NSError
-            let defaultLog = Logger()
-            defaultLog.error("Error while fetching vaults: \(nsError)")
-        }
-        
+        vaults = VaultService.loadVaults()
         tableView.reloadData()
     }
 
@@ -117,17 +102,9 @@ class VaultsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     private func deleteVault(indexPath: IndexPath) {
-        let context = appDelegate.persistentContainer.viewContext
-        
-        do {
-            context.delete(vaults[indexPath.row])
-            try context.save()
+        VaultService.deleteVault(vault: vaults[indexPath.row]) {
             vaults.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        } catch {
-            let nsError = error as NSError
-            let defaultLog = Logger()
-            defaultLog.error("Error deleting a vault: \(nsError)")
         }
     }
     

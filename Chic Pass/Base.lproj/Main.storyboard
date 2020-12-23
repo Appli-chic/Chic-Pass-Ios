@@ -270,7 +270,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryRow" rowHeight="72" id="yND-r1-T59" customClass="CategoryTableViewCell" customModule="Chic_Pass" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryRow" rowHeight="72" id="yND-r1-T59" customClass="CategoryTableViewCell" customModule="Chic_Pass" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yND-r1-T59" id="UVK-4t-57i">

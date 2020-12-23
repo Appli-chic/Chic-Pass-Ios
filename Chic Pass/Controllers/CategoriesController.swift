@@ -88,17 +88,9 @@ class CategoriesController: UIViewController, UITableViewDataSource, UITableView
     }
     
     private func deleteCategory(indexPath: IndexPath) {
-        let context = appDelegate.persistentContainer.viewContext
-        
-        do {
-            context.delete(categories[indexPath.row])
-            try context.save()
+        CategoryService.deleteCategory(category: categories[indexPath.row]) {
             categories.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        } catch {
-            let nsError = error as NSError
-            let defaultLog = Logger()
-            defaultLog.error("Error deleting a category: \(nsError)")
         }
     }
     

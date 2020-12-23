@@ -82,6 +82,7 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
     @objc private func onPasswordGenerated(_ notification: Notification) {
         let password = notification.object as! String
         passwordTextField.text = password
+        passwordTextField.colorizePassword(password: password)
         checkAllFieldsAreFilled()
     }
 
@@ -101,6 +102,8 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
             passwordTextField.isSecureTextEntry = false
             passwordIcon.image = UIImage(systemName: "eye.slash.fill")
         }
+
+        passwordTextField.colorizePassword(password: passwordTextField.text!)
     }
 
     @objc func onTextFieldsChange(_ textField: UITextField) {
@@ -154,26 +157,24 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
         let login = emailTextField.text
 
         DispatchQueue.global().async {
-            do {
-                let entry = Entry(context: context)
-                let uuid = UUID()
-                entry.id = uuid
-                entry.name = name
-                entry.password = password
-                entry.login = login
-                entry.category = self.category
-                entry.vault = SelectedVault.data.vault
-                entry.createdAt = Date()
-                entry.updatedAt = Date()
+            let entry = Entry(context: context)
+            let uuid = UUID()
+            entry.id = uuid
+            entry.name = name
+            entry.password = password
+            entry.login = login
+            entry.category = self.category
+            entry.vault = SelectedVault.data.vault
+            entry.createdAt = Date()
+            entry.updatedAt = Date()
 
-                try context.save()
-
+            EntryService.addEntryAndEncrypt(entry: entry, onSuccess: {
                 DispatchQueue.main.async {
                     loadingAlert.dismiss()
                     NotificationCenter.default.post(name: .newEntry, object: nil)
                     self.dismiss(animated: false)
                 }
-            } catch {
+            }, onError: { error in
                 DispatchQueue.main.async {
                     let nsError = error as NSError
                     let defaultLog = Logger()
@@ -182,7 +183,7 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
                     loadingAlert.dismiss()
                     self.saveButton.isEnabled = true
                 }
-            }
+            })
         }
     }
 

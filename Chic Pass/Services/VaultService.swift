@@ -1,13 +1,13 @@
 //
-// Created by Applichic on 12/22/20.
+// Created by Applichic on 12/23/20.
 //
 
 import UIKit
 import CoreData
 import os
 
-class EntryService {
-    static func addEntryAndEncrypt(entry: Entry, onSuccess: () -> Void, onError: (_: Error) -> Void) {
+class VaultService {
+    static func addVaultAndEncrypt(vault: Vault, onSuccess: () -> Void, onError: (_: Error) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -15,39 +15,37 @@ class EntryService {
         let context = appDelegate.persistentContainer.viewContext
 
         do {
-            let signature = try Security.encryptData(key: SelectedVault.data.password, data: entry.password!)
-            entry.password = signature
+            let signature = try Security.encryptData(key: vault.signature!, data: Security.signature)
+            vault.signature = signature
             try context.save()
             onSuccess()
         } catch {
-            onError(error)
+           onError(error)
         }
     }
 
-    static func getAllEntriesFromVault(vault: Vault) -> [Entry] {
-        var entries = [Entry]()
+    static func loadVaults() -> [Vault] {
+        var vaults = [Vault]()
 
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return []
         }
 
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Entry>(entityName: "Entry")
-        let predicate = NSPredicate(format: "vault.id == %@", vault.id!.uuidString)
-        fetchRequest.predicate = predicate
+        let fetchRequest = NSFetchRequest<Vault>(entityName: "Vault")
 
         do {
-            entries = try managedContext.fetch(fetchRequest)
+            vaults = try managedContext.fetch(fetchRequest)
         } catch {
             let nsError = error as NSError
             let defaultLog = Logger()
-            defaultLog.error("Error while fetching entries: \(nsError)")
+            defaultLog.error("Error while fetching vaults: \(nsError)")
         }
 
-        return entries
+        return vaults
     }
 
-    static func deleteEntry(entry: Entry, onDeleted: () -> Void) {
+    static func deleteVault(vault: Vault, onDeleted: () -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -55,13 +53,13 @@ class EntryService {
         let context = appDelegate.persistentContainer.viewContext
 
         do {
-            context.delete(entry)
+            context.delete(vault)
             try context.save()
             onDeleted()
         } catch {
             let nsError = error as NSError
             let defaultLog = Logger()
-            defaultLog.error("Error deleting an entry: \(nsError)")
+            defaultLog.error("Error deleting a vault: \(nsError)")
         }
     }
 }

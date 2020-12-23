@@ -29,4 +29,22 @@ class CategoryService {
 
         return categories
     }
+
+    static func deleteCategory(category: Category, onDeleted: () -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+
+        let context = appDelegate.persistentContainer.viewContext
+
+        do {
+            context.delete(category)
+            try context.save()
+            onDeleted()
+        } catch {
+            let nsError = error as NSError
+            let defaultLog = Logger()
+            defaultLog.error("Error deleting a category: \(nsError)")
+        }
+    }
 }
