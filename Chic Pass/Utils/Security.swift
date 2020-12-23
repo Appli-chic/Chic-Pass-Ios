@@ -19,6 +19,7 @@ class Security {
     private static let iv = Array(ivString.utf8)
     private static var aesKey: Array<UInt8>? = nil
     private static let salt: Array<UInt8> = Array(saltString.utf8)
+    private static var aesInMemory: AES? = nil
     
     static func encryptData(key: String, data: String) throws -> String {
         let secret: Array<UInt8> = Array(key.utf8)
@@ -50,7 +51,7 @@ class Security {
     }
     
     private static func getAESInstance(secret: Array<UInt8>, reloadAes: Bool) throws -> AES {
-        if aesKey == nil || reloadAes {
+        if aesInMemory == nil || reloadAes {
             aesKey = try PKCS5.PBKDF2(
                 password: secret,
                 salt: salt,
@@ -58,8 +59,10 @@ class Security {
                 keyLength: 32, /* AES-256 */
                 variant: .sha256
             ).calculate()
+
+            aesInMemory = try AES(key: aesKey!, blockMode: CBC(iv: iv), padding: .pkcs7)
         }
 
-        return try AES(key: aesKey!, blockMode: CBC(iv: iv), padding: .pkcs7)
+        return aesInMemory!
     }
 }
