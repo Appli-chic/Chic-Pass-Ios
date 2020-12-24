@@ -65,8 +65,8 @@ class NewEntryTableViewController: UITableViewController, UITextFieldDelegate {
         passwordTextField.textContentType = .oneTimeCode
 
         // Add the password an eye icon
-        let passwordIconView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        passwordIcon = UIImageView(frame: CGRect(x: 60, y: 13, width: 24, height: 24))
+        let passwordIconView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
+        passwordIcon = UIImageView(frame: CGRect(x: 20, y: 13, width: 24, height: 24))
         passwordIcon.image = UIImage(systemName: "eye.fill")
         passwordIcon.contentMode = .scaleAspectFit
         passwordIcon.tintColor = UIColor.systemBlue

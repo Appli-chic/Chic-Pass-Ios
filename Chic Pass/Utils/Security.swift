@@ -50,7 +50,7 @@ class Security {
         throw SecurityError.DecryptError
     }
     
-    private static func getAESInstance(secret: Array<UInt8>, reloadAes: Bool) throws -> AES {
+    static func getAESInstance(secret: Array<UInt8>, reloadAes: Bool) throws -> AES {
         if aesInMemory == nil || reloadAes {
             aesKey = try PKCS5.PBKDF2(
                 password: secret,

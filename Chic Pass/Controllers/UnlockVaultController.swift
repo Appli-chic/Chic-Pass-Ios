@@ -38,7 +38,7 @@ class UnlockVaultController: UIViewController {
         passwordIcon.tintColor = UIColor.label
         passwordIconView.addSubview(passwordIcon)
 
-        let passwordIconTap = UITapGestureRecognizer(target: self, action: #selector(self.onPasswordIconTapped(_:)))
+        let passwordIconTap = UITapGestureRecognizer(target: self, action: #selector(onPasswordIconTapped(_:)))
         passwordIconView.addGestureRecognizer(passwordIconTap)
 
         passwordTextField.rightView = passwordIconView
@@ -59,19 +59,39 @@ class UnlockVaultController: UIViewController {
     }
 
     private func unlockThroughMetrics(password: String) {
+        let loadingAlert = JGProgressHUD()
         let context = LAContext()
+
+        self.unlockButton.isEnabled = false
+
+        // Load while checking the password
+        loadingAlert.textLabel.text = "Loading"
+        loadingAlert.hudView.backgroundColor = UIColor.secondarySystemBackground
+        loadingAlert.show(in: view)
 
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock your vault") {
             success, error in
 
             if success {
+                // Create an instance for the AES
+                DispatchQueue.global().async {
+                    do {
+                        let secret: Array<UInt8> = Array(password.utf8)
+                        let _ = try Security.getAESInstance(secret: secret, reloadAes: true)
 
-                // Move to the main thread because a state update triggers UI changes.
-                DispatchQueue.main.async { [unowned self] in
-                    SelectedVault.data.vault = self.vault!
-                    SelectedVault.data.password = password
-                    NotificationCenter.default.post(name: .vaultUnlocked, object: nil)
-                    self.dismiss(animated: false)
+                        // Move to the main thread because a state update triggers UI changes.
+                        DispatchQueue.main.async {
+                            SelectedVault.data.vault = self.vault!
+                            SelectedVault.data.password = password
+                            loadingAlert.dismiss()
+                            NotificationCenter.default.post(name: .vaultUnlocked, object: nil)
+                            self.dismiss(animated: false)
+                        }
+                    } catch {
+                        let nsError = error as NSError
+                        let defaultLog = Logger()
+                        defaultLog.error("Error creating an entry: \(nsError)")
+                    }
                 }
             } else {
                 print(error?.localizedDescription ?? "Failed to authenticate")

@@ -32,6 +32,7 @@ class EntryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         )
         
         tableView.dataSource = self
+        tableView.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false;
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -82,6 +83,11 @@ class EntryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             present(deletedAlert, animated: true, completion: nil)
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entry = entries[indexPath.row]
+        performSegue(withIdentifier: "entry_detail", sender: entry)
+    }
     
     private func deleteEntry(indexPath: IndexPath) {
         EntryService.deleteEntry(entry: entries[indexPath.row]) {
@@ -93,5 +99,13 @@ class EntryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func onBackClicked(_ sender: Any) {
         parent?.navigationController?.popViewController(animated: true)
         parent?.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "entry_detail" && sender is Entry {
+            let navController = segue.destination as! UINavigationController
+            let entryDetailController = navController.topViewController as! EntryDetailController
+            entryDetailController.entry = sender as? Entry
+        }
     }
 }
