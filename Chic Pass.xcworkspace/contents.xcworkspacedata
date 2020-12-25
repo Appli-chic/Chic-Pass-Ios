@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Chic Pass.xcodeproj">
+      location = "group:/Users/lazyos/workspace/ios/Chic-Pass-iOS/Compliclef.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
